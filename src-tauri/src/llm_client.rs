@@ -416,6 +416,9 @@ pub async fn send_chat_completion_with_schema(
     json_schema: Option<Value>,
     disable_reasoning: bool,
 ) -> Result<Option<String>, String> {
+    if cfg!(feature = "local-only") {
+        return Err("Cloud processing is disabled in Handy Local".into());
+    }
     let base_url = provider.base_url.trim_end_matches('/');
     let url = format!("{}/chat/completions", base_url);
 
@@ -625,6 +628,9 @@ pub async fn fetch_models(
     provider: &PostProcessProvider,
     api_key: String,
 ) -> Result<Vec<String>, String> {
+    if cfg!(feature = "local-only") {
+        return Err("Cloud processing is disabled in Handy Local".into());
+    }
     let base_url = provider.base_url.trim_end_matches('/');
     let url = format!("{}/models", base_url);
 

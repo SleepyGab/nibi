@@ -439,7 +439,7 @@ pub(crate) async fn process_transcription_output(
     let mut post_process_prompt: Option<String> = None;
     let mut post_process_failed = false;
 
-    if post_process {
+    if post_process && !cfg!(feature = "local-only") {
         // A reply that's blank once cleaned is no better than none.
         let outcome = match post_process_transcription(&settings, &final_text).await {
             PostProcessOutcome::Done(text) => non_blank_post_processed_text(text)
@@ -466,6 +466,7 @@ pub(crate) async fn process_transcription_output(
         }
     }
 
+    let final_text = crate::local_corrections::apply(app, &final_text);
     ProcessedTranscription {
         final_text,
         post_processed_text,
@@ -476,6 +477,7 @@ pub(crate) async fn process_transcription_output(
 
 impl ShortcutAction for TranscribeAction {
     fn start(&self, app: &AppHandle, binding_id: &str, _shortcut_str: &str) {
+        crate::local_corrections::clear(app);
         let start_time = Instant::now();
         debug!("TranscribeAction::start called for binding: {}", binding_id);
 
@@ -877,12 +879,22 @@ impl ShortcutAction for TranscribeAction {
                                         // UI while this paste ran.
                                         let owns_ui =
                                             || RECORDING_SESSION.load(Ordering::SeqCst) == session;
+                                        let capture = crate::local_corrections::capture(&ah_clone);
+                                        let mut remembered_text = final_text.clone();
+                                        if get_settings(&ah_clone).append_trailing_space {
+                                            remembered_text.push(' ');
+                                        }
                                         let (outcome, notice) =
                                             match utils::paste(final_text, ah_clone.clone()) {
                                                 Ok(()) => {
                                                     debug!(
                                                         "Text pasted successfully in {:?}",
                                                         paste_time.elapsed()
+                                                    );
+                                                    crate::local_corrections::begin(
+                                                        &ah_clone,
+                                                        remembered_text,
+                                                        capture,
                                                     );
                                                     // Leave a newer session's notice alone.
                                                     if owns_ui() {

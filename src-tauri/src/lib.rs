@@ -15,6 +15,7 @@ mod input;
 mod language_detection;
 mod languages;
 mod llm_client;
+mod local_corrections;
 mod managers;
 mod memory;
 mod notices;
@@ -395,6 +396,7 @@ fn initialize_core_logic(app_handle: &AppHandle) {
 
     // Create the recording overlay window (hidden by default)
     utils::create_recording_overlay(app_handle);
+    local_corrections::initialize(app_handle);
 }
 
 #[tauri::command]
@@ -682,6 +684,8 @@ pub fn run(cli_args: CliArgs) {
 
     let specta_builder = Builder::<tauri::Wry>::new()
         .commands(collect_commands![
+            local_corrections::corrections_state,
+            local_corrections::corrections_action,
             shortcut::change_binding,
             shortcut::reset_binding,
             shortcut::change_shortcut_activation_setting,
@@ -998,7 +1002,7 @@ pub fn run(cli_args: CliArgs) {
             // for portable mode (redirects WebView2 cache to portable Data dir)
             let mut win_builder =
                 tauri::WebviewWindowBuilder::new(app, "main", tauri::WebviewUrl::App("/".into()))
-                    .title("Handy")
+                    .title(if cfg!(feature = "local-only") { "Handy Local" } else { "Handy" })
                     .inner_size(utils::MAIN_WINDOW_SIZE.0, utils::MAIN_WINDOW_SIZE.1)
                     .min_inner_size(utils::MAIN_WINDOW_SIZE.0, utils::MAIN_WINDOW_SIZE.1)
                     .resizable(true)
