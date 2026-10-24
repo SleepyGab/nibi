@@ -24,7 +24,11 @@
     "build:cjk-font": "bun scripts/build-cjk-font.ts",
     "check:cjk-font": "bun scripts/build-cjk-font.ts --check",
     "postinstall": "bun scripts/check-nix-deps.ts",
-    "build:local": "tauri build --config src-tauri/tauri.corrections.conf.json --features local-only --bundles app"
+    "build:local": "tauri build --config src-tauri/tauri.corrections.conf.json --features local-only --bundles app",
+    "upstream:check": "python3 scripts/upstream_sync.py",
+    "upstream:prepare": "python3 scripts/upstream_sync.py --prepare",
+    "upstream:test": "python3 -m unittest discover -s scripts -p 'test_upstream_sync.py' -v",
+    "check:local": "python3 scripts/check_local_fork.py"
   },
   "dependencies": {
     "@handy-computer/models": "0.2.3",
