@@ -70,6 +70,7 @@ struct MenuInputs {
     downloaded_models: Vec<(String, String)>,
     locale: String,
     update_checks_enabled: bool,
+    correction_available: bool,
     /// The language submenu, when the selected model has languages to pick.
     language: Option<LanguageMenu>,
 }
@@ -394,6 +395,7 @@ fn compute_desired(app: &AppHandle, icon_state: TrayIconState) -> TrayDesired {
             locale: settings.app_language,
             update_checks_enabled: settings.update_checks_enabled,
             language,
+            correction_available: crate::local_corrections::can_correct_last(),
         },
     }
 }
@@ -689,6 +691,18 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
         true,
         None::<&str>,
     )?;
+    let correction_label = if strings.correct_last_dictation.is_empty() {
+        get_tray_translations(Some("en".into())).correct_last_dictation
+    } else {
+        strings.correct_last_dictation.clone()
+    };
+    let correct_last_i = MenuItem::with_id(
+        app,
+        "correct_last_dictation",
+        &correction_label,
+        inputs.correction_available && !inputs.busy,
+        None::<&str>,
+    )?;
     let quit_i = MenuItem::with_id(app, "quit", &strings.quit, true, quit_accelerator)?;
     let separator = || PredefinedMenuItem::separator(app);
 
@@ -701,6 +715,7 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
                 &separator()?,
                 &cancel_i,
                 &separator()?,
+                &correct_last_i,
                 &copy_last_transcript_i,
                 &separator()?,
                 &settings_i,
@@ -740,6 +755,7 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
             &[
                 &version_i,
                 &separator()?,
+                &correct_last_i,
                 &copy_last_transcript_i,
                 &separator()?,
                 &model_submenu,
@@ -973,6 +989,7 @@ mod tests {
             post_process_requested: false,
             source_name: None,
             language: None,
+            correction_available: false,
             language_source: None,
         }
     }
