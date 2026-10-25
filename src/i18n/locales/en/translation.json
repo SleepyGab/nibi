@@ -71,7 +71,8 @@
       },
       "errors": {
         "checkFailed": "Failed to check permissions. Please try again.",
-        "requestFailed": "Failed to request permission. Please try again."
+        "requestFailed": "Failed to request permission. Please try again.",
+        "restartFailed": "Could not restart. Quit and reopen Handy Local."
       },
       "titleMac": "Two permissions, then you're set",
       "titleWindows": "One permission, then you're set",
@@ -86,7 +87,14 @@
       "hintBoth": "Allow both to continue",
       "hintMicrophone": "Allow the microphone to continue",
       "welcomeBack": "Welcome back. Picking up where you left off.",
-      "relaunch": "Shortcut not responding after this? <relaunch>Relaunch Handy</relaunch> and you'll land right back here."
+      "relaunch": "Shortcut not responding after this? <relaunch>Relaunch Handy</relaunch> and you'll land right back here.",
+      "recheck": "Check again",
+      "restart": "Restart Handy Local",
+      "recovery": {
+        "accessibility": "macOS has not authorized this running copy yet. If the switch is already on, remove the old Handy Local entry with the minus button, add Handy Local from Applications again, and enable it. Then return here or restart Handy Local.",
+        "microphone": "Microphone access has not been detected. Check the microphone permission in System Settings, then check again.",
+        "initialization": "Permissions are granted, but input setup has not completed. Check again or restart Handy Local."
+      }
     },
     "shell": {
       "back": "Back",

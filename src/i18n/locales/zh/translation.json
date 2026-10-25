@@ -71,7 +71,8 @@
       },
       "errors": {
         "checkFailed": "检查权限失败。请重试。",
-        "requestFailed": "请求权限失败。请重试。"
+        "requestFailed": "请求权限失败。请重试。",
+        "restartFailed": "无法自动重启，请退出后重新打开 Handy Local。"
       },
       "titleMac": "两项权限，马上就好",
       "titleWindows": "一项权限，马上就好",
@@ -86,7 +87,14 @@
       "hintBoth": "请允许两项权限后继续",
       "hintMicrophone": "请允许使用麦克风后继续",
       "welcomeBack": "欢迎回来，我们接着刚才的步骤继续。",
-      "relaunch": "之后快捷键没有反应？<relaunch>重新启动 Handy</relaunch>，您会直接回到这里。"
+      "relaunch": "之后快捷键没有反应？<relaunch>重新启动 Handy</relaunch>，您会直接回到这里。",
+      "recheck": "重新检查",
+      "restart": "重启 Handy Local",
+      "recovery": {
+        "accessibility": "macOS 尚未授权当前运行的应用。如果开关已经开启，请在系统设置里用减号移除旧的 Handy Local 条目，重新添加“应用程序”里的 Handy Local 并开启权限，再返回这里或重启 Handy Local。",
+        "microphone": "尚未检测到麦克风权限。请在系统设置里检查麦克风授权，然后重新检查。",
+        "initialization": "权限已获准，但输入功能尚未初始化完成。请重新检查或重启 Handy Local。"
+      }
     },
     "shell": {
       "back": "返回",
