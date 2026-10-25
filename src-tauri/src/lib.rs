@@ -33,6 +33,7 @@ mod tray;
 mod tray_i18n;
 mod utils;
 pub mod webkit_renderer;
+mod vocabulary;
 
 pub use cli::CliArgs;
 #[cfg(debug_assertions)]
