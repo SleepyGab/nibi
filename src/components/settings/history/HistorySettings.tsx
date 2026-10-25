@@ -331,7 +331,6 @@ export const HistorySettings: React.FC = () => {
                 entry={entry}
                 job={jobs[entry.id]}
                 onToggleSaved={() => toggleSaved(entry.id)}
-                onCopyText={() => copyToClipboard(entry.transcription_text)}
                 getAudioUrl={getAudioUrl}
                 deleteAudio={deleteAudioEntry}
                 retryTranscription={commands.retryHistoryEntryTranscription}
@@ -380,7 +379,6 @@ interface HistoryEntryProps {
   entry: HistoryEntry;
   job?: ActiveJobStatus;
   onToggleSaved: () => void;
-  onCopyText: () => Promise<boolean>;
   getAudioUrl: (fileName: string) => Promise<string | null>;
   deleteAudio: (id: number) => Promise<void>;
   retryTranscription: (id: number) => Promise<void>;
@@ -391,7 +389,6 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
   entry,
   job,
   onToggleSaved,
-  onCopyText,
   getAudioUrl,
   deleteAudio,
   retryTranscription,
@@ -399,6 +396,10 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [showCopied, setShowCopied] = useState(false);
+  const [showOriginal, setShowOriginal] = useState(false);
+  const displayedText = showOriginal
+    ? entry.transcription_text
+    : entry.post_processed_text || entry.transcription_text;
   // Pressed cancel: a running job stops after its current chunk.
   const [cancelling, setCancelling] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -422,7 +423,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
     const observer = new ResizeObserver(measure);
     observer.observe(el);
     return () => observer.disconnect();
-  }, [folded, entry.transcription_text]);
+  }, [folded, displayedText]);
 
   const handleLoadAudio = useCallback(
     () => getAudioUrl(entry.file_name),
@@ -434,7 +435,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
       return;
     }
 
-    const copied = await onCopyText();
+    const copied = await copyToClipboard(displayedText);
     if (!copied) {
       notify({ title: t("settings.history.copyError") });
       return;
@@ -450,6 +451,15 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
     } catch (error) {
       console.error("Failed to delete entry:", error);
       notify({ title: t("settings.history.deleteError") });
+    }
+  };
+
+  const restoreOriginal = async () => {
+    if (await copyToClipboard(entry.transcription_text)) {
+      setShowOriginal(true);
+      notify({ title: t("cloudPolish.originalCopied") });
+    } else {
+      notify({ title: t("settings.history.copyError") });
     }
   };
 
@@ -534,6 +544,33 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
         </div>
       </div>
 
+      {entry.post_processed_text && (
+        <div className="flex items-center gap-3 flex-wrap">
+          <Button
+            variant="secondary"
+            size="sm"
+            disabled={retrying}
+            onClick={() => setShowOriginal(!showOriginal)}
+          >
+            {t(
+              showOriginal
+                ? "cloudPolish.showResult"
+                : "cloudPolish.showOriginal",
+            )}
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            disabled={retrying}
+            onClick={() => void restoreOriginal()}
+          >
+            {t("cloudPolish.restore")}
+          </Button>
+          <span className="text-xs text-text/60">
+            {t(showOriginal ? "cloudPolish.original" : "cloudPolish.result")}
+          </span>
+        </div>
+      )}
       <div className="flex flex-col items-start gap-1 pb-2">
         <p
           ref={textRef}
@@ -561,7 +598,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
           {retrying
             ? progressText
             : hasTranscription
-              ? entry.transcription_text
+              ? displayedText
               : entry.source_name
                 ? // Cancelled, interrupted by a quit, or failed.
                   t("settings.history.notTranscribed")

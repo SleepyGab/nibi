@@ -338,7 +338,7 @@ impl TranscriptionJobManager {
         let post_process_failed = processed.post_process_failed;
         hm.update_transcription(
             entry.id,
-            text,
+            processed.original_text,
             processed.post_processed_text,
             processed.post_process_prompt,
             language,
