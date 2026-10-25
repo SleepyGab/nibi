@@ -72,7 +72,7 @@
       "errors": {
         "checkFailed": "Failed to check permissions. Please try again.",
         "requestFailed": "Failed to request permission. Please try again.",
-        "restartFailed": "Could not restart. Quit and reopen Handy Local."
+        "restartFailed": "Could not restart. Quit and reopen nibi."
       },
       "titleMac": "Two permissions, then you're set",
       "titleWindows": "One permission, then you're set",
@@ -89,12 +89,13 @@
       "welcomeBack": "Welcome back. Picking up where you left off.",
       "relaunch": "Shortcut not responding after this? <relaunch>Relaunch Handy</relaunch> and you'll land right back here.",
       "recheck": "Check again",
-      "restart": "Restart Handy Local",
+      "restart": "Restart nibi",
       "recovery": {
-        "accessibility": "macOS has not authorized this running copy yet. If the switch is already on, remove the old Handy Local entry with the minus button, add Handy Local from Applications again, and enable it. Then return here or restart Handy Local.",
+        "accessibility": "macOS has not authorized this running copy yet. If the switch is already on, remove the old nibi entry with the minus button, add nibi from Applications again, and enable it. Then return here or restart nibi.",
         "microphone": "Microphone access has not been detected. Check the microphone permission in System Settings, then check again.",
-        "initialization": "Permissions are granted, but input setup has not completed. Check again or restart Handy Local."
-      }
+        "initialization": "Permissions are granted, but input setup has not completed. Check again or restart nibi."
+      },
+      "description": "nibi needs a couple of permissions to work properly."
     },
     "shell": {
       "back": "Back",
@@ -339,7 +340,7 @@
     "general": {
       "title": "General",
       "shortcut": {
-        "title": "Handy Shortcuts",
+        "title": "nibi Shortcuts",
         "description": "Configure keyboard shortcuts to trigger speech-to-text recording",
         "loading": "Loading shortcuts...",
         "none": "No shortcuts configured",
@@ -439,7 +440,7 @@
       },
       "rescan": {
         "label": "Rescan",
-        "tooltip": "Rescan for models added to the models folder or Hugging Face cache outside Handy"
+        "tooltip": "Rescan for models added to the models folder or Hugging Face cache outside nibi"
       }
     },
     "languages": {
@@ -509,11 +510,11 @@
       },
       "autostart": {
         "label": "Launch on Startup",
-        "description": "Automatically start Handy when you log in to your computer."
+        "description": "Automatically start nibi when you log in to your computer."
       },
       "showTrayIcon": {
         "label": "Show Tray Icon",
-        "description": "Display the Handy icon in the system tray."
+        "description": "Display the nibi icon in the system tray."
       },
       "overlay": {
         "style": {
@@ -750,7 +751,7 @@
       },
       "updateChecks": {
         "label": "Check for Updates",
-        "description": "Automatically check for new versions of Handy",
+        "description": "Automatically check for new versions of nibi",
         "lockedDescription": "Disabled by system configuration (HANDY_DISABLE_UPDATER)"
       },
       "whatsNewPreview": {
@@ -856,7 +857,7 @@
       },
       "keyboardDiagnostic": {
         "title": "Keyboard Diagnostic",
-        "description": "Checks whether keyboard events reach Handy. Only event counts are recorded — never which keys you press.",
+        "description": "Checks whether keyboard events reach nibi. Only event counts are recorded — never which keys you press.",
         "run": "Run 10s diagnostic",
         "running": "Listening… press your shortcut a few times (e.g. Option+Space)",
         "secureInputLabel": "Secure Input",
@@ -870,7 +871,7 @@
         "mouse": "Mouse",
         "verdictBlocked": "Secure Input is blocking key events — keyed shortcuts cannot work until it is resolved.",
         "verdictSuspicious": "Modifier events arrived but no key events — something is suppressing keys even though Secure Input reports disabled. Please report this on GitHub.",
-        "verdictOk": "Key events are reaching Handy normally.",
+        "verdictOk": "Key events are reaching nibi normally.",
         "verdictNoEvents": "No events captured — did you press any keys during the test?",
         "failed": "Diagnostic failed: {{error}}"
       }
@@ -879,15 +880,15 @@
       "title": "About",
       "version": {
         "title": "Version",
-        "description": "Current version of Handy"
+        "description": "Current version of nibi"
       },
       "whatsNewUpdates": {
         "label": "Show What's New",
-        "description": "Show release notes after Handy updates"
+        "description": "Show release notes after nibi updates"
       },
       "appDataDirectory": {
         "title": "App Data Directory",
-        "description": "Location where Handy stores its data"
+        "description": "Location where nibi stores its data"
       },
       "sourceCode": {
         "title": "Source Code",
@@ -904,7 +905,7 @@
         "ggml": {
           "title": "ggml",
           "description": "High-performance tensor library for on-device machine learning inference",
-          "details": "Handy's local speech-to-text is built on transcribe.cpp and ggml. Thanks to the amazing work by Georgi Gerganov and contributors."
+          "details": "nibi's local speech-to-text is built on transcribe.cpp and ggml. Thanks to the amazing work by Georgi Gerganov and contributors."
         }
       }
     }
@@ -925,7 +926,7 @@
     "portableUpdateBrowseButton": "Open GitHub Releases"
   },
   "whatsNew": {
-    "title": "New in Handy v{{version}}"
+    "title": "New in nibi v{{version}}"
   },
   "common": {
     "playbackPosition": "Playback position",
@@ -971,11 +972,11 @@
   },
   "appLanguage": {
     "title": "Application Language",
-    "description": "Change the language of the Handy interface"
+    "description": "Change the language of the nibi interface"
   },
   "theme": {
     "title": "Application Theme",
-    "description": "Choose whether Handy follows your system theme or stays light or dark",
+    "description": "Choose whether nibi follows your system theme or stays light or dark",
     "options": {
       "system": "System",
       "light": "Light",
@@ -1010,7 +1011,7 @@
     "to": "Use instead",
     "exactHint": "Confirmed phrases are replaced exactly in future dictation, across all apps. English matching is case-sensitive. Delete a rule to undo learning.",
     "singleChar": "A single-character rule may change other words. Include the full name or phrase when possible.",
-    "observing": "Edit the text normally. Handy watches this field briefly and asks before remembering.",
+    "observing": "Edit the text normally. nibi watches this field briefly and asks before remembering.",
     "manualHint": "Automatic edit detection is unavailable here. Use “Correct last dictation”.",
     "remember": "Remember",
     "copy": "Copy corrected text",
@@ -1030,7 +1031,7 @@
     "empty": "No phrases remembered yet.",
     "delete": "Delete",
     "adjust": "Edit phrase",
-    "menuHint": "Use the Handy menu bar icon → Correct Last Dictation within 2 minutes of dictating. Ordinary dictation stays quiet; only detected edits show a suggestion.",
+    "menuHint": "Use the nibi menu bar icon → Correct Last Dictation within 2 minutes of dictating. Ordinary dictation stays quiet; only detected edits show a suggestion.",
     "rememberPrompt": "Add?",
     "remembered": "Added",
     "exportDictionary": "Export dictionary",
@@ -1049,7 +1050,7 @@
     "confirmImport": "Import corrections",
     "exported": "Exported {{count}} corrections.",
     "imported": "Import complete: {{added}} added, {{replaced}} replaced, {{skipped}} skipped.",
-    "invalidFile": "This is not a valid Handy Local dictionary. Nothing was imported.",
+    "invalidFile": "This is not a valid nibi dictionary. Nothing was imported.",
     "unsupportedFile": "This dictionary format or version is not supported.",
     "ambiguousFile": "The file gives different corrections for the same phrase. Resolve the duplicates before importing.",
     "fileLimit": "Dictionaries support up to 10,000 entries and 8 MB per file.",
@@ -1092,7 +1093,7 @@
     "title": "Text polishing",
     "description": "Optional DeepSeek polishing after local speech recognition. It removes filler words and improves punctuation and paragraphs while preserving your meaning.",
     "enable": "Polish transcriptions with DeepSeek",
-    "privacy": "Off by default. When enabled, transcription text is sent to DeepSeek using your API key. Audio stays on your device. If polishing fails, Handy uses the original text.",
+    "privacy": "Off by default. When enabled, transcription text is sent to DeepSeek using your API key. Audio stays on your device. If polishing fails, nibi uses the original text.",
     "apiKey": "DeepSeek API key",
     "keyPlaceholder": "Paste your DeepSeek API key",
     "keyReplace": "Enter a new key to replace the saved key",
@@ -1127,5 +1128,12 @@
     "hideKey": "Hide key",
     "savedKeyHelp": "One DeepSeek key is stored on this device. Saving a new key replaces the previous one. Removing it clears the saved key and turns polishing off.",
     "revealError": "Could not display the saved key. Please try again."
+  },
+  "app": {
+    "name": "nibi"
+  },
+  "accessibility": {
+    "permissionsDescription": "nibi needs accessibility permissions to type transcribed text.",
+    "openSettings": "Open System Settings"
   }
 }
