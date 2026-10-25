@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { platform } from "@tauri-apps/plugin-os";
+import { withPermissionTimeout } from "@/lib/permissions";
 import {
   checkAccessibilityPermission,
   checkMicrophonePermission,
@@ -104,6 +105,16 @@ function App() {
     checkOnboardingStatus();
   }, []);
 
+  // Explain why the unmodified text was pasted when cloud polishing fails.
+  useEffect(() => {
+    const unlisten = listen("cloud-polish-fallback", () => {
+      toast.warning(t("cloudPolish.fallback"));
+    });
+    return () => {
+      void unlisten.then((stop) => stop());
+    };
+  }, [t]);
+
   // Initialize RTL direction when language changes
   useEffect(() => {
     initializeRTL(i18n.language);
@@ -192,10 +203,13 @@ function App() {
 
         if (currentPlatform === "macos") {
           try {
-            const [hasAccessibility, hasMicrophone] = await Promise.all([
-              checkAccessibilityPermission(),
-              checkMicrophonePermission(),
-            ]);
+            const [hasAccessibility, hasMicrophone] =
+              await withPermissionTimeout(
+                Promise.all([
+                  checkAccessibilityPermission(),
+                  checkMicrophonePermission(),
+                ]),
+              );
             if (!hasAccessibility || !hasMicrophone) {
               await revealMainWindowForPermissions();
               setOnboardingStep("permissions");
@@ -203,7 +217,9 @@ function App() {
             }
           } catch (e) {
             console.warn("Failed to check macOS permissions:", e);
-            // If we can't check, proceed to main app and let them fix it there
+            await revealMainWindowForPermissions();
+            setOnboardingStep("permissions");
+            return;
           }
         }
 
@@ -221,7 +237,9 @@ function App() {
             }
           } catch (e) {
             console.warn("Failed to check Windows microphone permissions:", e);
-            // If we can't check, proceed to main app and let them fix it there
+            await revealMainWindowForPermissions();
+            setOnboardingStep("permissions");
+            return;
           }
         }
 
