@@ -445,7 +445,7 @@ pub(crate) async fn process_transcription_output(
         if let Some(processed_text) = crate::cloud_polish::polish(app, &original_text).await {
             post_processed_text = Some(processed_text.clone());
             final_text = processed_text;
-            post_process_prompt = Some(crate::cloud_polish::PROMPT.trim().to_string());
+            post_process_prompt = Some(crate::cloud_polish::prompt(settings.cloud_polish_mode));
         } else {
             post_process_failed = true;
         }
