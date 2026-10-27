@@ -1,6 +1,6 @@
 use crate::audio_toolkit::chunking;
 use crate::audio_toolkit::{
-    apply_custom_words, detect_output_language, normalize_transcription_output,
+    detect_output_language, normalize_transcription_output,
     remove_filler_words, OutputLanguageEvidence,
 };
 use crate::chinese_script::{convert_chinese_script, ChineseVariety};
@@ -1679,10 +1679,11 @@ fn post_process_transcription_text(
         };
 
         let corrected = if !settings.custom_words.is_empty() && !custom_words_already_prompted {
-            apply_custom_words(
+            crate::vocabulary::correct_fallback(
                 &raw,
                 &settings.custom_words,
                 settings.word_correction_threshold,
+                output_language.language(),
             )
         } else {
             raw
