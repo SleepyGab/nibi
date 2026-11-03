@@ -1,7 +1,9 @@
 # nibi 简单安装说明
 
-当前源码版本为 nibi v0.0.2-preview.1，适用于 Apple Silicon Mac。
+当前源码版本为 nibi v0.0.3-preview.1，基于 Handy v0.10.0，适用于 Apple Silicon Mac。
 建议使用较新的 macOS；尚未验证旧版 macOS 和 Intel 机型。
+
+下方下载链接仍为之前发布的预览版，不包含 v0.10.0 迁移；源码构建使用上方版本号。
 
 从[预览版 Release](https://github.com/SleepyGab/nibi/releases/tag/v0.0.2-preview.1) 下载
 **nibi-v0.0.2-preview.1-macos-apple-silicon.dmg**，包含多平台润色、独立的会议/日记提示词和可调的润色等待时间。
