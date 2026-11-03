@@ -33,8 +33,8 @@ mod transcription_hook;
 mod tray;
 mod tray_i18n;
 mod utils;
-pub mod webkit_renderer;
 mod vocabulary;
+pub mod webkit_renderer;
 
 pub use cli::CliArgs;
 #[cfg(debug_assertions)]
@@ -816,7 +816,6 @@ fn command_bindings() -> Builder<tauri::Wry> {
             actions::TranscriptionCompleteEvent,
             notices::NoticesChanged,
         ])
-
 }
 
 #[test]

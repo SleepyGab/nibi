@@ -25,7 +25,7 @@
     "customModelDescription": "Ikke officielt understøttet",
     "migration": {
       "title": "Dine modeller skal opdateres",
-      "description": "Handy bruger nu en nyere type model. Download den nye version for at fortsætte med at transskribere. Gamle versioner vil blive fjernet.",
+      "description": "nibi bruger nu en nyere type model. Download den nye version for at fortsætte med at transskribere. Gamle versioner vil blive fjernet.",
       "replaces": "Erstatter {{name}}",
       "oldFormat": "Gammelt format",
       "failed": "Download mislykkedes",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Mikrofon",
-        "why": "Så Handy kan høre dig. Lyd bliver omdannet til tekst på denne computer og uploades aldrig."
+        "why": "Så nibi kan høre dig. Lyd bliver omdannet til tekst på denne computer og uploades aldrig."
       },
       "accessibility": {
         "name": "Hjælpemidler",
-        "why": "Så din genvej virker i alle apps, og Handy kan skrive teksten dér, hvor din markør er."
+        "why": "Så din genvej virker i alle apps, og nibi kan skrive teksten dér, hvor din markør er."
       },
       "errors": {
         "checkFailed": "Kunne ikke tjekke tilladelser. Prøv igen.",
@@ -80,12 +80,12 @@
       "openSettings": "Åbn indstillinger",
       "allowed": "Tilladt",
       "waiting": "Venter",
-      "turnOnMac": "Slå Handy til i Systemindstillinger, og kom så tilbage hertil.",
+      "turnOnMac": "Slå nibi til i Systemindstillinger, og kom så tilbage hertil.",
       "turnOnWindows": "Slå adgang til mikrofonen til i Windows-indstillinger, og kom så tilbage hertil.",
       "hintBoth": "Tillad begge for at fortsætte",
       "hintMicrophone": "Tillad mikrofonen for at fortsætte",
       "welcomeBack": "Velkommen tilbage. Vi fortsætter, hvor du slap.",
-      "relaunch": "Reagerer genvejen ikke efter dette? <relaunch>Genstart Handy</relaunch>, så lander du lige her igen.",
+      "relaunch": "Reagerer genvejen ikke efter dette? <relaunch>Genstart nibi</relaunch>, så lander du lige her igen.",
       "description": "nibi har brug for et par tilladelser for at fungere korrekt."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Tal i stedet for at skrive, i enhver app",
       "subtitle": "Vælg de sprog, du vil diktere på",
       "languagesLabel": "Sprog",
-      "noMatch": "Intet sprog matcher »{{query}}«. Handys modeller dækker omkring 100 sprog; flere findes i indstillingerne.",
+      "noMatch": "Intet sprog matcher »{{query}}«. nibis modeller dækker omkring 100 sprog; flere findes i indstillingerne.",
       "appLanguage": "Appens sprog",
       "menusIn": "Menuer på <b>{{language}}</b>",
       "chinese": {
-        "question": "Du taler {{languages}}. Hvilke tegn skal Handy skrive?",
+        "question": "Du taler {{languages}}. Hvilke tegn skal nibi skrive?",
         "label": "Kinesiske tegn",
         "zh-Hans": "Forenklet",
         "zh-Hant": "Taiwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Giv det et forsøg!",
-      "subtitle": "Handy er i hjørnet og hjælper dig igennem",
+      "subtitle": "nibi er i hjørnet og hjælper dig igennem",
       "noteLabel": "Note",
       "placeholder": "Ny note",
       "hold": "Hold <keys/> nede, og tal.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Så er du klar",
-      "subMac": "Handy ligger nu i din menulinje. Hold eller tryk på <keys/> i en vilkårlig app for at tale.",
-      "subTray": "Handy ligger nu i dit meddelelsesområde. Hold eller tryk på <keys/> i en vilkårlig app for at tale.",
+      "subMac": "nibi ligger nu i din menulinje. Hold eller tryk på <keys/> i en vilkårlig app for at tale.",
+      "subTray": "nibi ligger nu i dit meddelelsesområde. Hold eller tryk på <keys/> i en vilkårlig app for at tale.",
       "hint": "Du kan ændre disse senere i Indstillinger",
       "highFiveLabel": "Highfive",
-      "atLogin": "Start Handy, når jeg logger ind",
+      "atLogin": "Start nibi, når jeg logger ind",
       "finish": "Færdig",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Klar",
         "languages": "Sprog",
         "model": "Talemodel",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Foretrukne sprog",
-        "description": "De sprog, du taler. Handy bruger dem til at anbefale modeller.",
+        "description": "De sprog, du taler. nibi bruger dem til at anbefale modeller.",
         "noMatch": "Intet sprog matcher »{{query}}«",
         "weak": "Ingen model genkender {{languages}} godt endnu."
       },
@@ -400,17 +400,17 @@
         "fits": "Til dine sprog",
         "untested": "Ikke testet"
       },
-      "untestedNote": "Ikke testet med Handy. De kan være langsommere eller lave flere fejl.",
+      "untestedNote": "Ikke testet med nibi. De kan være langsommere eller lave flere fejl.",
       "untestedHidden_one": "{{count}} model mere er ikke tilpasset diktering. Søg for at finde den.",
       "untestedHidden_other": "{{count}} modeller mere er ikke tilpasset diktering. Søg for at finde dem.",
-      "emptyYours": "Ingen modeller endnu. Vælg en nedenfor: den downloades, og så bruger Handy den.",
+      "emptyYours": "Ingen modeller endnu. Vælg en nedenfor: den downloades, og så bruger nibi den.",
       "showMore": "Vis {{count}} flere",
       "showFewer": "Vis færre",
       "download": "Download og brug",
       "downloadingThenUse": "{{percent}} % af {{total}}, så skiftes der",
       "loading": "Indlæser…",
       "deleteAsk": "Slet {{name}}? Det frigør {{size}}.",
-      "deleteAskActive": "Slet {{name}}? Handy kan ikke transskribere, før du vælger en anden.",
+      "deleteAskActive": "Slet {{name}}? nibi kan ikke transskribere, før du vælger en anden.",
       "cancel": "Annuller",
       "deleteModel": "Slet {{name}}",
       "cancelDownload": "Stop download af {{name}}",
@@ -424,7 +424,7 @@
         "marks": "? er ikke målt endnu. — forstår ikke det sprog."
       },
       "retiredNotice": {
-        "title": "Gamle modeller virker ikke længere med Handy",
+        "title": "Gamle modeller virker ikke længere med nibi",
         "description": "De fylder {{size}} på din computer.",
         "delete": "Slet modeller",
         "deleteFailed": "Nogle gamle modeller kunne ikke slettes. Se loggen for detaljer."
@@ -888,7 +888,7 @@
       },
       "supportDevelopment": {
         "title": "Støt udviklingen",
-        "description": "Hjælp os med at fortsætte udviklingen af Handy",
+        "description": "Hjælp os med at fortsætte udviklingen af nibi",
         "button": "Donér"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Ingen mikrofon fundet",
     "noInputDevice": "Ingen lydinputenhed blev registreret. Tilslut en mikrofon eller et headset, og prøv igen.",
     "recordingFailedTitle": "Kunne ikke starte optagelse",
-    "modelLoadFailed": "Handy kunne ikke indlæse denne model. Prøv igen, eller vælg en anden.",
+    "modelLoadFailed": "nibi kunne ikke indlæse denne model. Prøv igen, eller vælg en anden.",
     "modelLoadFailedTitle": "Kunne ikke indlæse model",
     "modelDownloadFailed": "Download mislykkedes",
     "pasteFailedTitle": "Kunne ikke indsætte tekst",

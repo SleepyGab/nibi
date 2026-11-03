@@ -198,6 +198,29 @@ export const Permissions: React.FC<PermissionsProps> = ({
             />
           )}
         </div>
+        {!permissions.allGranted && (
+          <div className="mt-4 flex flex-col gap-3 text-small">
+            {permissions.needsRecovery && (
+              <p role="status" className="text-ink-2">
+                {t(
+                  permissions.accessibility !== "granted" && isMac
+                    ? "onboarding.permissions.recovery.accessibility"
+                    : permissions.microphone !== "granted"
+                      ? "onboarding.permissions.recovery.microphone"
+                      : "onboarding.permissions.recovery.initialization",
+                )}
+              </p>
+            )}
+            <div className="flex gap-3">
+              <Button variant="secondary" onClick={permissions.recheck}>
+                {t("onboarding.permissions.recheck")}
+              </Button>
+              <Button variant="secondary" onClick={relaunchHandy}>
+                {t("onboarding.permissions.restart")}
+              </Button>
+            </div>
+          </div>
+        )}
         <p
           className={`mt-[18px] mb-0 text-small text-ink-3 ${
             isMac && permissions.accessibility === "granted"

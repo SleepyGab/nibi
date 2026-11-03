@@ -1,7 +1,7 @@
 use crate::audio_toolkit::chunking;
 use crate::audio_toolkit::{
-    detect_output_language, normalize_transcription_output,
-    remove_filler_words, OutputLanguageEvidence,
+    detect_output_language, normalize_transcription_output, remove_filler_words,
+    OutputLanguageEvidence,
 };
 use crate::chinese_script::{convert_chinese_script, ChineseVariety};
 use crate::engine_supervisor::{
@@ -1199,14 +1199,28 @@ impl TranscriptionManager {
         run_options: &RunOptions,
         active_model: &str,
     ) -> Result<Transcript, EngineError> {
-        self.touch_activity();
-        self.engine
-            .transcribe_since(mark, pcm, run_options.clone())
-            .inspect_err(|e| {
-                if !matches!(e, EngineError::Cancelled) {
-                    self.forget_model_if_engine_dropped(active_model, &e.to_string());
-                }
-            })
+        let protect_spelling = self
+            .engine
+            .loaded()
+            .is_some_and(|info| info.arch == "qwen3_asr");
+        crate::vocabulary::decode(
+            &run_options.vocabulary,
+            protect_spelling,
+            |words| {
+                self.touch_activity();
+                let mut options = run_options.clone();
+                options.vocabulary = words.to_vec();
+                self.engine
+                    .transcribe_since(mark, pcm.clone(), options)
+                    .inspect_err(|e| {
+                        if !matches!(e, EngineError::Cancelled) {
+                            self.forget_model_if_engine_dropped(active_model, &e.to_string());
+                        }
+                    })
+            },
+            |transcript| transcript.text.as_str(),
+            |error| matches!(error, EngineError::Cancelled),
+        )
     }
 }
 
@@ -1593,7 +1607,7 @@ fn with_model_detected_language(
 /// and rely on fuzzy correction instead.
 fn vocabulary_for_model(supports_vocabulary: bool, custom_words: &[String]) -> Vec<String> {
     if supports_vocabulary {
-        custom_words.to_vec()
+        crate::vocabulary::bounded_words(custom_words)
     } else {
         Vec::new()
     }

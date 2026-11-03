@@ -26,7 +26,7 @@
     "customModelDescription": "Not officially supported",
     "migration": {
       "title": "Your models need an update",
-      "description": "Handy now uses a newer kind of model. Download the new version to keep transcribing. Old versions will be removed.",
+      "description": "nibi now uses a newer kind of model. Download the new version to keep transcribing. Old versions will be removed.",
       "replaces": "Replaces {{name}}",
       "oldFormat": "Old format",
       "failed": "Download failed",
@@ -63,11 +63,11 @@
     "permissions": {
       "microphone": {
         "name": "Microphone",
-        "why": "So Handy can hear you. Audio is turned into text on this computer and never uploaded."
+        "why": "So nibi can hear you. Audio is turned into text on this computer and never uploaded."
       },
       "accessibility": {
         "name": "Accessibility",
-        "why": "So your shortcut works in every app, and Handy can type the text where your cursor is."
+        "why": "So your shortcut works in every app, and nibi can type the text where your cursor is."
       },
       "errors": {
         "checkFailed": "Failed to check permissions. Please try again.",
@@ -82,12 +82,12 @@
       "openSettings": "Open settings",
       "allowed": "Allowed",
       "waiting": "Waiting",
-      "turnOnMac": "Turn on Handy in System Settings, then come back here.",
+      "turnOnMac": "Turn on nibi in System Settings, then come back here.",
       "turnOnWindows": "Turn on microphone access in Windows Settings, then come back here.",
       "hintBoth": "Allow both to continue",
       "hintMicrophone": "Allow the microphone to continue",
       "welcomeBack": "Welcome back. Picking up where you left off.",
-      "relaunch": "Shortcut not responding after this? <relaunch>Relaunch Handy</relaunch> and you'll land right back here.",
+      "relaunch": "Shortcut not responding after this? <relaunch>Relaunch nibi</relaunch> and you'll land right back here.",
       "recheck": "Check again",
       "restart": "Restart nibi",
       "recovery": {
@@ -106,11 +106,11 @@
       "title": "Speak instead of typing, in any app",
       "subtitle": "Pick the languages you will dictate in",
       "languagesLabel": "Languages",
-      "noMatch": "No language matches “{{query}}”. Handy's models cover about 100 languages; more are in settings.",
+      "noMatch": "No language matches “{{query}}”. nibi's models cover about 100 languages; more are in settings.",
       "appLanguage": "App language",
       "menusIn": "Menus in <b>{{language}}</b>",
       "chinese": {
-        "question": "You speak {{languages}}. Which characters should Handy write?",
+        "question": "You speak {{languages}}. Which characters should nibi write?",
         "label": "Chinese characters",
         "zh-Hans": "Simplified",
         "zh-Hant": "Taiwan",
@@ -180,7 +180,7 @@
     },
     "try": {
       "title": "Give it a try!",
-      "subtitle": "Handy's in the corner to help walk you through it",
+      "subtitle": "nibi's in the corner to help walk you through it",
       "noteLabel": "Note",
       "placeholder": "New note",
       "hold": "Hold <keys/> and talk.",
@@ -208,14 +208,14 @@
     },
     "done": {
       "title": "You're all set",
-      "subMac": "Handy's in your menu bar now. Hold or tap <keys/> in any app to talk.",
-      "subTray": "Handy's in your system tray now. Hold or tap <keys/> in any app to talk.",
+      "subMac": "nibi's in your menu bar now. Hold or tap <keys/> in any app to talk.",
+      "subTray": "nibi's in your system tray now. Hold or tap <keys/> in any app to talk.",
       "hint": "You can change these later in Settings",
       "highFiveLabel": "High five",
-      "atLogin": "Start Handy when I log in",
+      "atLogin": "Start nibi when I log in",
       "finish": "Done",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Ready",
         "languages": "Languages",
         "model": "Speech model",
@@ -382,7 +382,7 @@
       },
       "preferredLanguages": {
         "title": "Preferred Languages",
-        "description": "The languages you speak. Handy uses them to recommend models.",
+        "description": "The languages you speak. nibi uses them to recommend models.",
         "noMatch": "No language matches “{{query}}”",
         "weak": "No model recognizes {{languages}} well yet."
       },
@@ -409,17 +409,17 @@
         "fits": "For your languages",
         "untested": "Untested"
       },
-      "untestedNote": "Not tested with Handy. They may be slower or make more mistakes.",
+      "untestedNote": "Not tested with nibi. They may be slower or make more mistakes.",
       "untestedHidden_one": "{{count}} more model isn’t tuned for dictation. Search to find it.",
       "untestedHidden_other": "{{count}} more models aren’t tuned for dictation. Search to find one.",
-      "emptyYours": "No models yet. Pick one below: it downloads, then Handy uses it.",
+      "emptyYours": "No models yet. Pick one below: it downloads, then nibi uses it.",
       "showMore": "Show {{count}} more",
       "showFewer": "Show fewer",
       "download": "Download and use",
       "downloadingThenUse": "{{percent}}% of {{total}}, then switches",
       "loading": "Loading…",
       "deleteAsk": "Delete {{name}}? It frees {{size}}.",
-      "deleteAskActive": "Delete {{name}}? Handy can’t transcribe until you pick another.",
+      "deleteAskActive": "Delete {{name}}? nibi can’t transcribe until you pick another.",
       "cancel": "Cancel",
       "deleteModel": "Delete {{name}}",
       "cancelDownload": "Stop downloading {{name}}",
@@ -433,7 +433,7 @@
         "marks": "? hasn’t been measured yet. — doesn’t hear that language."
       },
       "retiredNotice": {
-        "title": "Old models no longer work with Handy",
+        "title": "Old models no longer work with nibi",
         "description": "They're taking up {{size}} on your computer.",
         "delete": "Delete models",
         "deleteFailed": "Some old models couldn't be deleted. Check the log for details."
@@ -897,7 +897,7 @@
       },
       "supportDevelopment": {
         "title": "Support Development",
-        "description": "Help us continue building Handy",
+        "description": "Help us continue building nibi",
         "button": "Donate"
       },
       "acknowledgments": {
@@ -951,7 +951,7 @@
     "noInputDeviceTitle": "No Microphone Found",
     "noInputDevice": "No audio input device was detected. Please connect a microphone or headset and try again.",
     "recordingFailedTitle": "Failed to Start Recording",
-    "modelLoadFailed": "Handy couldn't load this model. Try again or choose a different one.",
+    "modelLoadFailed": "nibi couldn't load this model. Try again or choose a different one.",
     "modelLoadFailedTitle": "Failed to Load Model",
     "modelDownloadFailed": "Download failed",
     "pasteFailedTitle": "Failed to Paste Text",

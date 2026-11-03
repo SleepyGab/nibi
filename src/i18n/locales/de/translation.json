@@ -25,7 +25,7 @@
     "customModelDescription": "Nicht offiziell unterstützt",
     "migration": {
       "title": "Deine Modelle brauchen ein Update",
-      "description": "Handy verwendet jetzt eine neuere Art von Modellen. Lade die neue Version herunter, um weiter zu transkribieren. Alte Versionen werden entfernt.",
+      "description": "nibi verwendet jetzt eine neuere Art von Modellen. Lade die neue Version herunter, um weiter zu transkribieren. Alte Versionen werden entfernt.",
       "replaces": "Ersetzt {{name}}",
       "oldFormat": "Altes Format",
       "failed": "Download fehlgeschlagen",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Mikrofon",
-        "why": "Damit Handy dich hören kann. Audio wird auf diesem Computer in Text umgewandelt und nie hochgeladen."
+        "why": "Damit nibi dich hören kann. Audio wird auf diesem Computer in Text umgewandelt und nie hochgeladen."
       },
       "accessibility": {
         "name": "Bedienungshilfen",
-        "why": "Damit dein Tastenkürzel in jeder App funktioniert und Handy den Text dort eintippen kann, wo dein Cursor steht."
+        "why": "Damit dein Tastenkürzel in jeder App funktioniert und nibi den Text dort eintippen kann, wo dein Cursor steht."
       },
       "errors": {
         "checkFailed": "Berechtigungsprüfung fehlgeschlagen. Bitte erneut versuchen.",
@@ -80,12 +80,12 @@
       "openSettings": "Einstellungen öffnen",
       "allowed": "Erlaubt",
       "waiting": "Warten",
-      "turnOnMac": "Aktiviere Handy in den Systemeinstellungen und komm dann hierher zurück.",
+      "turnOnMac": "Aktiviere nibi in den Systemeinstellungen und komm dann hierher zurück.",
       "turnOnWindows": "Aktiviere den Mikrofonzugriff in den Windows-Einstellungen und komm dann hierher zurück.",
       "hintBoth": "Erlaube beides, um fortzufahren",
       "hintMicrophone": "Erlaube das Mikrofon, um fortzufahren",
       "welcomeBack": "Willkommen zurück. Es geht dort weiter, wo du aufgehört hast.",
-      "relaunch": "Tastenkürzel reagiert danach nicht? <relaunch>Handy neu starten</relaunch> und du landest direkt wieder hier.",
+      "relaunch": "Tastenkürzel reagiert danach nicht? <relaunch>nibi neu starten</relaunch> und du landest direkt wieder hier.",
       "description": "nibi benötigt einige Berechtigungen, um richtig zu funktionieren."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Sprechen statt tippen, in jeder App",
       "subtitle": "Wähle die Sprachen, in denen du diktierst",
       "languagesLabel": "Sprachen",
-      "noMatch": "Keine Sprache passt zu „{{query}}“. Die Modelle von Handy decken etwa 100 Sprachen ab; weitere findest du in den Einstellungen.",
+      "noMatch": "Keine Sprache passt zu „{{query}}“. Die Modelle von nibi decken etwa 100 Sprachen ab; weitere findest du in den Einstellungen.",
       "appLanguage": "App-Sprache",
       "menusIn": "Menüs auf <b>{{language}}</b>",
       "chinese": {
-        "question": "Du sprichst {{languages}}. Welche Schriftzeichen soll Handy schreiben?",
+        "question": "Du sprichst {{languages}}. Welche Schriftzeichen soll nibi schreiben?",
         "label": "Chinesische Schriftzeichen",
         "zh-Hans": "Vereinfacht",
         "zh-Hant": "Taiwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Probier es aus!",
-      "subtitle": "Handy ist in der Ecke und führt dich durch",
+      "subtitle": "nibi ist in der Ecke und führt dich durch",
       "noteLabel": "Notiz",
       "placeholder": "Neue Notiz",
       "hold": "Halte <keys/> gedrückt und sprich.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Alles bereit",
-      "subMac": "Handy ist jetzt in deiner Menüleiste. Halte <keys/> gedrückt oder tippe darauf, um in jeder App zu sprechen.",
-      "subTray": "Handy ist jetzt in deinem Infobereich. Halte <keys/> gedrückt oder tippe darauf, um in jeder App zu sprechen.",
+      "subMac": "nibi ist jetzt in deiner Menüleiste. Halte <keys/> gedrückt oder tippe darauf, um in jeder App zu sprechen.",
+      "subTray": "nibi ist jetzt in deinem Infobereich. Halte <keys/> gedrückt oder tippe darauf, um in jeder App zu sprechen.",
       "hint": "Du kannst das später in den Einstellungen ändern",
       "highFiveLabel": "High Five",
-      "atLogin": "Handy beim Anmelden starten",
+      "atLogin": "nibi beim Anmelden starten",
       "finish": "Fertig",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Bereit",
         "languages": "Sprachen",
         "model": "Sprachmodell",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Bevorzugte Sprachen",
-        "description": "Die Sprachen, die du sprichst. Handy nutzt sie, um Modelle zu empfehlen.",
+        "description": "Die Sprachen, die du sprichst. nibi nutzt sie, um Modelle zu empfehlen.",
         "noMatch": "Keine Sprache passt zu „{{query}}“",
         "weak": "Noch kein Modell erkennt {{languages}} gut."
       },
@@ -400,17 +400,17 @@
         "fits": "Für deine Sprachen",
         "untested": "Ungetestet"
       },
-      "untestedNote": "Nicht mit Handy getestet. Sie könnten langsamer sein oder mehr Fehler machen.",
+      "untestedNote": "Nicht mit nibi getestet. Sie könnten langsamer sein oder mehr Fehler machen.",
       "untestedHidden_one": "{{count}} weiteres Modell ist nicht für Diktat optimiert. Suche danach, um es zu finden.",
       "untestedHidden_other": "{{count}} weitere Modelle sind nicht für Diktat optimiert. Suche danach, um eines zu finden.",
-      "emptyYours": "Noch keine Modelle. Wähle unten eines aus: Es wird heruntergeladen, dann nutzt Handy es.",
+      "emptyYours": "Noch keine Modelle. Wähle unten eines aus: Es wird heruntergeladen, dann nutzt nibi es.",
       "showMore": "{{count}} weitere anzeigen",
       "showFewer": "Weniger anzeigen",
       "download": "Herunterladen und verwenden",
       "downloadingThenUse": "{{percent}} % von {{total}}, dann wird gewechselt",
       "loading": "Wird geladen…",
       "deleteAsk": "{{name}} löschen? Das gibt {{size}} frei.",
-      "deleteAskActive": "{{name}} löschen? Handy kann erst wieder transkribieren, wenn du ein anderes wählst.",
+      "deleteAskActive": "{{name}} löschen? nibi kann erst wieder transkribieren, wenn du ein anderes wählst.",
       "cancel": "Abbrechen",
       "deleteModel": "{{name}} löschen",
       "cancelDownload": "Download von {{name}} abbrechen",
@@ -424,7 +424,7 @@
         "marks": "? wurde noch nicht gemessen. — versteht diese Sprache nicht."
       },
       "retiredNotice": {
-        "title": "Alte Modelle funktionieren nicht mehr mit Handy",
+        "title": "Alte Modelle funktionieren nicht mehr mit nibi",
         "description": "Sie belegen {{size}} auf deinem Computer.",
         "delete": "Modelle löschen",
         "deleteFailed": "Einige alte Modelle konnten nicht gelöscht werden. Details findest du im Protokoll."
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "Entwicklung unterstützen",
-        "description": "Hilf uns, Handy weiterzuentwickeln",
+        "description": "Hilf uns, nibi weiterzuentwickeln",
         "button": "Spenden"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Kein Mikrofon gefunden",
     "noInputDevice": "Es wurde kein Audio-Eingabegerät erkannt. Bitte schließe ein Mikrofon oder Headset an und versuche es erneut.",
     "recordingFailedTitle": "Aufnahmestart fehlgeschlagen",
-    "modelLoadFailed": "Handy konnte dieses Modell nicht laden. Versuche es erneut oder wähle ein anderes.",
+    "modelLoadFailed": "nibi konnte dieses Modell nicht laden. Versuche es erneut oder wähle ein anderes.",
     "modelLoadFailedTitle": "Modell konnte nicht geladen werden",
     "modelDownloadFailed": "Download fehlgeschlagen",
     "pasteFailedTitle": "Text konnte nicht eingefügt werden",

@@ -60,11 +60,16 @@ fn main() -> anyhow::Result<()> {
         } {
             let options = RunOptions::default();
             let start = Instant::now();
-            let result = vocabulary::transcribe(
-                &mut session,
-                &audio,
-                &options,
+            let result = vocabulary::decode(
                 if hinted { &words } else { &[] },
+                true,
+                |vocabulary| {
+                    let mut options = options.clone();
+                    options.vocabulary = vocabulary.to_vec();
+                    session.run(&audio, &options)
+                },
+                |transcript| transcript.text.as_str(),
+                |error| matches!(error, transcribe_cpp::Error::Aborted { .. }),
             );
             let row = match result {
                 Ok(transcript) => {

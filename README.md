@@ -11,7 +11,10 @@ Handy provides the local dictation engine, model manager, shortcuts and core UI;
 nibi adds vocabulary tools, explicit correction memory and optional text polishing,
 with its own name and artwork. It is not an official Handy release or an endorsed
 project. The [upstream baseline](.github/upstream-sync.json) records the currently
-integrated official release.
+integrated official release. The current source integrates **Handy v0.10.0**;
+existing preview downloads below do not include this migration. See the
+[migration report](docs/HANDY_V0.10.0_MIGRATION.md) for retained features,
+changed model support and validation scope.
 
 ## Features
 
@@ -21,14 +24,18 @@ integrated official release.
   including Qwen3-ASR or Whisper.
 - **Teach names and terms.** Add correct spellings under **Dictionary → Custom
   vocabulary**, without supplying a misspelling. Qwen3-ASR and Whisper use them as
-  local recognition hints. Cohere and Parakeet use local correction after
-  recognition, including English terms and Mandarin near-homophones when the
-  model supports the language. Ambiguous matches keep the original spelling.
+  local recognition hints through the upstream vocabulary API. Other models
+  receive hints when supported; models without native hints use local correction,
+  including English terms and Mandarin near-homophones when the model supports
+  the language. Ambiguous matches keep the original spelling.
   Hints do not guarantee spelling and do not train the model.
-- **Transcribe long recordings progressively.** Qwen3-ASR and Cohere decode
-  pause-based chunks while recording, with overlapping context and boundary
-  deduplication. Stopping finishes the remaining tail. Parakeet Unified EN keeps
-  its native English streaming path.
+- **Transcribe long recordings progressively.** Handy's upstream pipeline decodes
+  pause-based chunks while recording for models without native long-audio or
+  streaming support. Stopping finishes the remaining tail. Models with native
+  streaming keep that path; chunking is configurable in Advanced settings.
+- **Transcribe files into History.** Import an audio/video file or drag it into
+  the window, with background progress and cancellation. ONNX models use
+  upstream's replacement-model flow; the current source uses GGUF/ggml models.
 - **Remember corrections with your approval.** A supported edit to the last
   dictated text can show a compact **Add?** prompt. Nothing is remembered until
   you confirm. **Correct Last Dictation** in the menu bar provides a manual route;
@@ -85,9 +92,9 @@ notarization process, so first launch may require **Open Anyway** in macOS Priva
 & Security. This approval is separate from installation and from the Microphone
 and Accessibility permissions requested by the app.
 
-Recording has no fixed timer cutoff, but reliable transcription length depends on
+The published preview has no fixed recording timer cutoff, but reliable transcription length depends on
 the model and available memory. Parakeet Unified EN supports streaming English
-transcription; the current Qwen3-ASR and Cohere paths process the recording after
+transcription; the published preview’s Qwen3-ASR and Cohere paths process the recording after
 it stops and do not automatically split long audio. Meeting mode formats completed
 transcription text; it does not add long-recording support. Hour-long meetings have
 not been validated.

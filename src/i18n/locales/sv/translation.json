@@ -25,7 +25,7 @@
     "customModelDescription": "Stöds inte officiellt",
     "migration": {
       "title": "Dina modeller behöver uppdateras",
-      "description": "Handy använder nu en nyare typ av modell. Ladda ner den nya versionen för att fortsätta transkribera. Gamla versioner kommer att tas bort.",
+      "description": "nibi använder nu en nyare typ av modell. Ladda ner den nya versionen för att fortsätta transkribera. Gamla versioner kommer att tas bort.",
       "replaces": "Ersätter {{name}}",
       "oldFormat": "Gammalt format",
       "failed": "Nedladdningen misslyckades",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Mikrofon",
-        "why": "Så att Handy kan höra dig. Ljudet omvandlas till text på den här datorn och laddas aldrig upp."
+        "why": "Så att nibi kan höra dig. Ljudet omvandlas till text på den här datorn och laddas aldrig upp."
       },
       "accessibility": {
         "name": "Hjälpmedel",
-        "why": "Så att din genväg fungerar i alla appar och Handy kan skriva texten där markören står."
+        "why": "Så att din genväg fungerar i alla appar och nibi kan skriva texten där markören står."
       },
       "errors": {
         "checkFailed": "Misslyckades med att kontrollera behörigheter. Försök igen.",
@@ -80,12 +80,12 @@
       "openSettings": "Öppna inställningar",
       "allowed": "Tillåten",
       "waiting": "Väntar",
-      "turnOnMac": "Slå på Handy i Systeminställningar och kom sedan tillbaka hit.",
+      "turnOnMac": "Slå på nibi i Systeminställningar och kom sedan tillbaka hit.",
       "turnOnWindows": "Slå på mikrofonåtkomst i Inställningar i Windows och kom sedan tillbaka hit.",
       "hintBoth": "Tillåt båda för att fortsätta",
       "hintMicrophone": "Tillåt mikrofonen för att fortsätta",
       "welcomeBack": "Välkommen tillbaka. Vi fortsätter där du slutade.",
-      "relaunch": "Svarar inte genvägen efter detta? <relaunch>Starta om Handy</relaunch> så hamnar du direkt här igen.",
+      "relaunch": "Svarar inte genvägen efter detta? <relaunch>Starta om nibi</relaunch> så hamnar du direkt här igen.",
       "description": "nibi behöver ett par behörigheter för att fungera korrekt."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Tala i stället för att skriva, i vilken app som helst",
       "subtitle": "Välj språken du kommer att diktera på",
       "languagesLabel": "Språk",
-      "noMatch": "Inget språk matchar ”{{query}}”. Handys modeller täcker cirka 100 språk, fler finns i inställningarna.",
+      "noMatch": "Inget språk matchar ”{{query}}”. nibis modeller täcker cirka 100 språk, fler finns i inställningarna.",
       "appLanguage": "Appspråk",
       "menusIn": "Menyer på <b>{{language}}</b>",
       "chinese": {
-        "question": "Du talar {{languages}}. Vilka tecken ska Handy skriva?",
+        "question": "Du talar {{languages}}. Vilka tecken ska nibi skriva?",
         "label": "Kinesiska tecken",
         "zh-Hans": "Förenklad",
         "zh-Hant": "Taiwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Testa nu!",
-      "subtitle": "Handy finns i hörnet och guidar dig",
+      "subtitle": "nibi finns i hörnet och guidar dig",
       "noteLabel": "Anteckning",
       "placeholder": "Ny anteckning",
       "hold": "Håll in <keys/> och tala.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Nu är allt klart",
-      "subMac": "Handy finns nu i menyraden. Håll in eller tryck på <keys/> i valfri app för att tala.",
-      "subTray": "Handy finns nu i systemfältet. Håll in eller tryck på <keys/> i valfri app för att tala.",
+      "subMac": "nibi finns nu i menyraden. Håll in eller tryck på <keys/> i valfri app för att tala.",
+      "subTray": "nibi finns nu i systemfältet. Håll in eller tryck på <keys/> i valfri app för att tala.",
       "hint": "Du kan ändra detta senare i Inställningar",
       "highFiveLabel": "Femman",
-      "atLogin": "Starta Handy när jag loggar in",
+      "atLogin": "Starta nibi när jag loggar in",
       "finish": "Klar",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Redo",
         "languages": "Språk",
         "model": "Talmodell",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Föredragna språk",
-        "description": "Språken du talar. Handy använder dem för att rekommendera modeller.",
+        "description": "Språken du talar. nibi använder dem för att rekommendera modeller.",
         "noMatch": "Inget språk matchar ”{{query}}”",
         "weak": "Ingen modell känner igen {{languages}} bra ännu."
       },
@@ -400,17 +400,17 @@
         "fits": "För dina språk",
         "untested": "Ej testade"
       },
-      "untestedNote": "Inte testade med Handy. De kan vara långsammare eller göra fler fel.",
+      "untestedNote": "Inte testade med nibi. De kan vara långsammare eller göra fler fel.",
       "untestedHidden_one": "{{count}} modell till är inte anpassad för diktering. Sök för att hitta den.",
       "untestedHidden_other": "{{count}} modeller till är inte anpassade för diktering. Sök för att hitta en.",
-      "emptyYours": "Inga modeller ännu. Välj en nedan: den laddas ner och sedan använder Handy den.",
+      "emptyYours": "Inga modeller ännu. Välj en nedan: den laddas ner och sedan använder nibi den.",
       "showMore": "Visa {{count}} till",
       "showFewer": "Visa färre",
       "download": "Ladda ner och använd",
       "downloadingThenUse": "{{percent}} % av {{total}}, sedan byts modell",
       "loading": "Laddar…",
       "deleteAsk": "Ta bort {{name}}? Det frigör {{size}}.",
-      "deleteAskActive": "Ta bort {{name}}? Handy kan inte transkribera förrän du väljer en annan.",
+      "deleteAskActive": "Ta bort {{name}}? nibi kan inte transkribera förrän du väljer en annan.",
       "cancel": "Avbryt",
       "deleteModel": "Ta bort {{name}}",
       "cancelDownload": "Stoppa nedladdningen av {{name}}",
@@ -424,7 +424,7 @@
         "marks": "? har inte mätts ännu. — hör inte det språket."
       },
       "retiredNotice": {
-        "title": "Gamla modeller fungerar inte längre med Handy",
+        "title": "Gamla modeller fungerar inte längre med nibi",
         "description": "De tar upp {{size}} på din dator.",
         "delete": "Ta bort modeller",
         "deleteFailed": "Vissa gamla modeller kunde inte tas bort. Se loggen för mer information."
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "Stöd utvecklingen",
-        "description": "Hjälp oss att fortsätta bygga Handy",
+        "description": "Hjälp oss att fortsätta bygga nibi",
         "button": "Donera"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Ingen mikrofon hittades",
     "noInputDevice": "Ingen ljudenhet hittades. Anslut en mikrofon eller ett headset och försök igen.",
     "recordingFailedTitle": "Inspelningen kunde inte starta",
-    "modelLoadFailed": "Handy kunde inte läsa in den här modellen. Försök igen eller välj en annan.",
+    "modelLoadFailed": "nibi kunde inte läsa in den här modellen. Försök igen eller välj en annan.",
     "modelLoadFailedTitle": "Misslyckades med att ladda modell",
     "modelDownloadFailed": "Nedladdningen misslyckades",
     "pasteFailedTitle": "Det gick inte att klistra in texten",

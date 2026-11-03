@@ -381,6 +381,9 @@ pub async fn send_chat_completion(
     prompt: String,
     disable_reasoning: bool,
 ) -> Result<Option<String>, String> {
+    if cfg!(feature = "local-only") {
+        return Err("Cloud processing is disabled in Handy Local".into());
+    }
     if provider.api_format == PostProcessApiFormat::Anthropic {
         return send_anthropic_message(provider, api_key, model, prompt).await;
     }
@@ -950,6 +953,7 @@ mod tests {
         assert_eq!(empty.into_text(), None);
     }
 
+    #[cfg(not(feature = "local-only"))]
     #[tokio::test]
     async fn anthropic_format_parses_messages_response() {
         let base_url = serve_one_response(
@@ -968,6 +972,7 @@ mod tests {
         assert_eq!(result, Ok(Some("Cleaned text".to_string())));
     }
 
+    #[cfg(not(feature = "local-only"))]
     #[tokio::test]
     async fn chat_completion_rejects_truncated_response() {
         let base_url = serve_one_response(
@@ -986,6 +991,7 @@ mod tests {
         assert!(result.unwrap_err().contains("truncated"));
     }
 
+    #[cfg(not(feature = "local-only"))]
     #[tokio::test]
     async fn anthropic_format_rejects_truncated_response() {
         let base_url = serve_one_response(

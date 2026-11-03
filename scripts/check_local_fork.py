@@ -72,11 +72,10 @@ def check(root: Path) -> list[str]:
         '"thinking": {"type": "disabled"}',
         'disabled_and_legacy_settings_never_opt_in',
     )
-    contains("src-tauri/Cargo.toml", 'path = "vendor/transcribe-cpp"', 'path = "vendor/transcribe-cpp-sys"')
-    contains("src-tauri/src/managers/transcription.rs", "crate::vocabulary::transcribe(")
-    contains("src-tauri/src/vocabulary.rs", "has_spelling_cue", "RunExtension::Qwen3Asr", "session.run(audio, &plain)")
+    contains("src-tauri/Cargo.toml", 'transcribe-cpp = { version = "0.4.0"')
+    contains("src-tauri/src/managers/transcription.rs", "crate::vocabulary::decode(", "crate::vocabulary::bounded_words(custom_words)")
+    contains("src-tauri/src/vocabulary.rs", "has_spelling_cue", "cancelled(&error)")
     contains("src/corrections/Corrections.tsx", "<Vocabulary />")
-    contains("src-tauri/vendor/transcribe-cpp-sys/src/arch/qwen3_asr/model.cpp", "encode_context", "accepts_context")
     contains("src-tauri/src/settings.rs", "cloud_polish_enabled: false")
     contains("src-tauri/src/actions.rs", "crate::cloud_polish::polish(app, &original_text)")
     contains("src-tauri/build.rs", "build_local_corrections_bridge();")
@@ -107,11 +106,12 @@ def check(root: Path) -> list[str]:
         ),
         "local-only must force app update checks off",
     )
-    contains(
-        "src-tauri/src/llm_client.rs",
-        'cfg!(feature = "local-only")',
-        "Cloud processing is disabled in Handy Local",
-    )
+    llm = source("src-tauri/src/llm_client.rs")
+    for entry in ["send_chat_completion", "send_chat_completion_with_schema", "fetch_models"]:
+        require(
+            bool(re.search(rf"pub async fn {entry}\(.*?\n\) -> .*?\{{\s*if cfg!\(feature = \"local-only\"\)", llm, re.DOTALL)),
+            f"Review local-only network guard at {entry}",
+        )
     contains(
         "src-tauri/src/local_corrections.rs",
         "corrections_are_non_cascading_and_word_bounded",

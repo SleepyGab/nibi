@@ -25,7 +25,7 @@
     "customModelDescription": "Tidak didukung secara resmi",
     "migration": {
       "title": "Model Anda perlu diperbarui",
-      "description": "Handy kini menggunakan jenis model yang lebih baru. Unduh versi baru untuk terus mentranskripsi. Versi lama akan dihapus.",
+      "description": "nibi kini menggunakan jenis model yang lebih baru. Unduh versi baru untuk terus mentranskripsi. Versi lama akan dihapus.",
       "replaces": "Menggantikan {{name}}",
       "oldFormat": "Format lama",
       "failed": "Unduhan gagal",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Mikrofon",
-        "why": "Agar Handy dapat mendengar Anda. Audio diubah menjadi teks di komputer ini dan tidak pernah diunggah."
+        "why": "Agar nibi dapat mendengar Anda. Audio diubah menjadi teks di komputer ini dan tidak pernah diunggah."
       },
       "accessibility": {
         "name": "Aksesibilitas",
-        "why": "Agar pintasan Anda berfungsi di semua aplikasi, dan Handy dapat mengetik teks di tempat kursor Anda berada."
+        "why": "Agar pintasan Anda berfungsi di semua aplikasi, dan nibi dapat mengetik teks di tempat kursor Anda berada."
       },
       "errors": {
         "checkFailed": "Gagal memeriksa izin. Silakan coba lagi.",
@@ -80,12 +80,12 @@
       "openSettings": "Buka pengaturan",
       "allowed": "Diizinkan",
       "waiting": "Menunggu",
-      "turnOnMac": "Aktifkan Handy di Pengaturan Sistem, lalu kembali ke sini.",
+      "turnOnMac": "Aktifkan nibi di Pengaturan Sistem, lalu kembali ke sini.",
       "turnOnWindows": "Aktifkan akses mikrofon di Setelan Windows, lalu kembali ke sini.",
       "hintBoth": "Izinkan keduanya untuk melanjutkan",
       "hintMicrophone": "Izinkan mikrofon untuk melanjutkan",
       "welcomeBack": "Selamat datang kembali. Kita lanjutkan dari tadi.",
-      "relaunch": "Pintasan tidak merespons setelah ini? <relaunch>Luncurkan ulang Handy</relaunch> dan Anda akan kembali tepat ke sini.",
+      "relaunch": "Pintasan tidak merespons setelah ini? <relaunch>Luncurkan ulang nibi</relaunch> dan Anda akan kembali tepat ke sini.",
       "description": "nibi memerlukan beberapa izin agar dapat berfungsi dengan baik."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Bicara, bukan mengetik, di aplikasi apa pun",
       "subtitle": "Pilih bahasa yang akan Anda gunakan untuk mendikte",
       "languagesLabel": "Bahasa",
-      "noMatch": "Tidak ada bahasa yang cocok dengan “{{query}}”. Model Handy mencakup sekitar 100 bahasa; sisanya ada di pengaturan.",
+      "noMatch": "Tidak ada bahasa yang cocok dengan “{{query}}”. Model nibi mencakup sekitar 100 bahasa; sisanya ada di pengaturan.",
       "appLanguage": "Bahasa aplikasi",
       "menusIn": "Menu dalam <b>{{language}}</b>",
       "chinese": {
-        "question": "Anda berbicara {{languages}}. Aksara mana yang harus ditulis Handy?",
+        "question": "Anda berbicara {{languages}}. Aksara mana yang harus ditulis nibi?",
         "label": "Aksara Mandarin",
         "zh-Hans": "Sederhana",
         "zh-Hant": "Taiwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Coba sekarang!",
-      "subtitle": "Handy ada di pojok untuk memandu Anda",
+      "subtitle": "nibi ada di pojok untuk memandu Anda",
       "noteLabel": "Catatan",
       "placeholder": "Catatan baru",
       "hold": "Tahan <keys/> dan bicara.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Semua siap",
-      "subMac": "Handy kini ada di bilah menu Anda. Tahan atau ketuk <keys/> di aplikasi apa pun untuk bicara.",
-      "subTray": "Handy kini ada di baki sistem Anda. Tahan atau ketuk <keys/> di aplikasi apa pun untuk bicara.",
+      "subMac": "nibi kini ada di bilah menu Anda. Tahan atau ketuk <keys/> di aplikasi apa pun untuk bicara.",
+      "subTray": "nibi kini ada di baki sistem Anda. Tahan atau ketuk <keys/> di aplikasi apa pun untuk bicara.",
       "hint": "Anda dapat mengubahnya nanti di Pengaturan",
       "highFiveLabel": "Tos",
-      "atLogin": "Jalankan Handy saat saya masuk",
+      "atLogin": "Jalankan nibi saat saya masuk",
       "finish": "Selesai",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Siap",
         "languages": "Bahasa",
         "model": "Model ucapan",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Bahasa Pilihan",
-        "description": "Bahasa yang Anda gunakan. Handy memakainya untuk merekomendasikan model.",
+        "description": "Bahasa yang Anda gunakan. nibi memakainya untuk merekomendasikan model.",
         "noMatch": "Tidak ada bahasa yang cocok dengan “{{query}}”",
         "weak": "Belum ada model yang mengenali {{languages}} dengan baik."
       },
@@ -400,17 +400,17 @@
         "fits": "Untuk bahasa Anda",
         "untested": "Belum diuji"
       },
-      "untestedNote": "Belum diuji dengan Handy. Mungkin lebih lambat atau lebih banyak salah.",
+      "untestedNote": "Belum diuji dengan nibi. Mungkin lebih lambat atau lebih banyak salah.",
       "untestedHidden_one": "{{count}} model lagi tidak disetel untuk dikte. Cari untuk menemukannya.",
       "untestedHidden_other": "{{count}} model lagi tidak disetel untuk dikte. Cari untuk menemukannya.",
-      "emptyYours": "Belum ada model. Pilih satu di bawah: model diunduh, lalu Handy menggunakannya.",
+      "emptyYours": "Belum ada model. Pilih satu di bawah: model diunduh, lalu nibi menggunakannya.",
       "showMore": "Tampilkan {{count}} lagi",
       "showFewer": "Tampilkan lebih sedikit",
       "download": "Unduh dan gunakan",
       "downloadingThenUse": "{{percent}}% dari {{total}}, lalu beralih",
       "loading": "Memuat…",
       "deleteAsk": "Hapus {{name}}? Ini membebaskan {{size}}.",
-      "deleteAskActive": "Hapus {{name}}? Handy tidak dapat mentranskripsi sampai Anda memilih model lain.",
+      "deleteAskActive": "Hapus {{name}}? nibi tidak dapat mentranskripsi sampai Anda memilih model lain.",
       "cancel": "Batal",
       "deleteModel": "Hapus {{name}}",
       "cancelDownload": "Hentikan unduhan {{name}}",
@@ -424,7 +424,7 @@
         "marks": "? belum diukur. — tidak mengenali bahasa itu."
       },
       "retiredNotice": {
-        "title": "Model lama tidak lagi berfungsi dengan Handy",
+        "title": "Model lama tidak lagi berfungsi dengan nibi",
         "description": "Model tersebut memakan {{size}} di komputer Anda.",
         "delete": "Hapus model",
         "deleteFailed": "Beberapa model lama tidak dapat dihapus. Periksa log untuk detailnya."
@@ -888,7 +888,7 @@
       },
       "supportDevelopment": {
         "title": "Dukung Pengembangan",
-        "description": "Bantu kami terus mengembangkan Handy",
+        "description": "Bantu kami terus mengembangkan nibi",
         "button": "Donasi"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Mikrofon Tidak Ditemukan",
     "noInputDevice": "Tidak ada perangkat masukan audio yang terdeteksi. Hubungkan mikrofon atau headset lalu coba lagi.",
     "recordingFailedTitle": "Gagal Memulai Perekaman",
-    "modelLoadFailed": "Handy tidak dapat memuat model ini. Coba lagi atau pilih model lain.",
+    "modelLoadFailed": "nibi tidak dapat memuat model ini. Coba lagi atau pilih model lain.",
     "modelLoadFailedTitle": "Gagal Memuat Model",
     "modelDownloadFailed": "Unduhan gagal",
     "pasteFailedTitle": "Gagal Menempelkan Teks",

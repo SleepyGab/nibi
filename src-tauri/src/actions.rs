@@ -901,11 +901,13 @@ impl ShortcutAction for TranscribeAction {
                                                         "Text pasted successfully in {:?}",
                                                         paste_time.elapsed()
                                                     );
-                                                    crate::local_corrections::begin(
-                                                        &ah_clone,
-                                                        remembered_text,
-                                                        capture,
-                                                    );
+                                                    if owns_ui() {
+                                                        crate::local_corrections::begin(
+                                                            &ah_clone,
+                                                            remembered_text,
+                                                            capture,
+                                                        );
+                                                    }
                                                     // Leave a newer session's notice alone.
                                                     if owns_ui() {
                                                         notices::clear(
@@ -1162,6 +1164,7 @@ mod tests {
         );
     }
 
+    #[cfg(not(feature = "local-only"))]
     #[test]
     fn a_post_processing_reply_is_done() {
         let url = serve_once(r#"{"choices":[{"message":{"content":"polished"}}]}"#);

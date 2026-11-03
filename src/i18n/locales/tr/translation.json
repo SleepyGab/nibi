@@ -25,7 +25,7 @@
     "customModelDescription": "Resmi olarak desteklenmiyor",
     "migration": {
       "title": "Modellerinizin güncellenmesi gerekiyor",
-      "description": "Handy artık daha yeni bir model türü kullanıyor. Transkripsiyona devam etmek için yeni sürümü indirin. Eski sürümler kaldırılacak.",
+      "description": "nibi artık daha yeni bir model türü kullanıyor. Transkripsiyona devam etmek için yeni sürümü indirin. Eski sürümler kaldırılacak.",
       "replaces": "{{name}} yerine geçer",
       "oldFormat": "Eski format",
       "failed": "İndirme başarısız oldu",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Mikrofon",
-        "why": "Handy sizi duyabilsin diye. Ses bu bilgisayarda metne dönüştürülür, hiçbir yere yüklenmez."
+        "why": "nibi sizi duyabilsin diye. Ses bu bilgisayarda metne dönüştürülür, hiçbir yere yüklenmez."
       },
       "accessibility": {
         "name": "Erişilebilirlik",
-        "why": "Kısayolunuz her uygulamada çalışsın ve Handy metni imlecinizin bulunduğu yere yazabilsin diye."
+        "why": "Kısayolunuz her uygulamada çalışsın ve nibi metni imlecinizin bulunduğu yere yazabilsin diye."
       },
       "errors": {
         "checkFailed": "İzinler kontrol edilemedi. Lütfen tekrar deneyin.",
@@ -80,12 +80,12 @@
       "openSettings": "Ayarları aç",
       "allowed": "İzin verildi",
       "waiting": "Bekleniyor",
-      "turnOnMac": "Sistem Ayarları'nda Handy'yi açın, sonra buraya dönün.",
+      "turnOnMac": "Sistem Ayarları'nda nibi'yi açın, sonra buraya dönün.",
       "turnOnWindows": "Windows Ayarları'nda mikrofon erişimini açın, sonra buraya dönün.",
       "hintBoth": "Devam etmek için ikisine de izin verin",
       "hintMicrophone": "Devam etmek için mikrofona izin verin",
       "welcomeBack": "Tekrar hoş geldiniz. Kaldığınız yerden devam ediyoruz.",
-      "relaunch": "Bundan sonra kısayol yanıt vermiyor mu? <relaunch>Handy'yi yeniden başlatın</relaunch>, doğrudan buraya döneceksiniz.",
+      "relaunch": "Bundan sonra kısayol yanıt vermiyor mu? <relaunch>nibi'yi yeniden başlatın</relaunch>, doğrudan buraya döneceksiniz.",
       "description": "nibi'nin düzgün çalışabilmesi için birkaç izne ihtiyacı var."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Yazmak yerine konuşun, her uygulamada",
       "subtitle": "Konuşacağınız dilleri seçin",
       "languagesLabel": "Diller",
-      "noMatch": "“{{query}}” ile eşleşen dil yok. Handy'nin modelleri yaklaşık 100 dili kapsıyor; daha fazlası ayarlarda.",
+      "noMatch": "“{{query}}” ile eşleşen dil yok. nibi'nin modelleri yaklaşık 100 dili kapsıyor; daha fazlası ayarlarda.",
       "appLanguage": "Uygulama dili",
       "menusIn": "Menüler <b>{{language}}</b> dilinde",
       "chinese": {
-        "question": "{{languages}} konuşuyorsunuz. Handy hangi karakterleri yazsın?",
+        "question": "{{languages}} konuşuyorsunuz. nibi hangi karakterleri yazsın?",
         "label": "Çince karakterler",
         "zh-Hans": "Basitleştirilmiş",
         "zh-Hant": "Tayvan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Bir deneyin!",
-      "subtitle": "Handy köşede, size yol göstermek için hazır",
+      "subtitle": "nibi köşede, size yol göstermek için hazır",
       "noteLabel": "Not",
       "placeholder": "Yeni not",
       "hold": "<keys/> tuşlarını basılı tutun ve konuşun.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Hazırsınız",
-      "subMac": "Handy artık menü çubuğunuzda. Konuşmak için herhangi bir uygulamada <keys/> tuşlarını basılı tutun veya dokunun.",
-      "subTray": "Handy artık sistem tepsinizde. Konuşmak için herhangi bir uygulamada <keys/> tuşlarını basılı tutun veya dokunun.",
+      "subMac": "nibi artık menü çubuğunuzda. Konuşmak için herhangi bir uygulamada <keys/> tuşlarını basılı tutun veya dokunun.",
+      "subTray": "nibi artık sistem tepsinizde. Konuşmak için herhangi bir uygulamada <keys/> tuşlarını basılı tutun veya dokunun.",
       "hint": "Bunları daha sonra Ayarlar'dan değiştirebilirsiniz",
       "highFiveLabel": "Çak bir beşlik",
-      "atLogin": "Oturum açtığımda Handy'yi başlat",
+      "atLogin": "Oturum açtığımda nibi'yi başlat",
       "finish": "Bitti",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Hazır",
         "languages": "Diller",
         "model": "Konuşma modeli",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Tercih Edilen Diller",
-        "description": "Konuştuğunuz diller. Handy bunları model önermek için kullanır.",
+        "description": "Konuştuğunuz diller. nibi bunları model önermek için kullanır.",
         "noMatch": "“{{query}}” ile eşleşen dil yok",
         "weak": "Henüz hiçbir model {{languages}} dilini iyi tanımıyor."
       },
@@ -400,17 +400,17 @@
         "fits": "Dilleriniz için",
         "untested": "Test edilmemiş"
       },
-      "untestedNote": "Handy ile test edilmedi. Daha yavaş olabilir veya daha fazla hata yapabilir.",
+      "untestedNote": "nibi ile test edilmedi. Daha yavaş olabilir veya daha fazla hata yapabilir.",
       "untestedHidden_one": "{{count}} model daha yazdırma için ayarlanmamış. Bulmak için arama yapın.",
       "untestedHidden_other": "{{count}} model daha yazdırma için ayarlanmamış. Bulmak için arama yapın.",
-      "emptyYours": "Henüz model yok. Aşağıdan birini seçin: iner, sonra Handy onu kullanır.",
+      "emptyYours": "Henüz model yok. Aşağıdan birini seçin: iner, sonra nibi onu kullanır.",
       "showMore": "{{count}} tane daha göster",
       "showFewer": "Daha az göster",
       "download": "İndir ve kullan",
       "downloadingThenUse": "{{total}} içinden %{{percent}}, sonra geçilir",
       "loading": "Yükleniyor…",
       "deleteAsk": "{{name}} silinsin mi? {{size}} yer açılır.",
-      "deleteAskActive": "{{name}} silinsin mi? Başka bir model seçene kadar Handy transkripsiyon yapamaz.",
+      "deleteAskActive": "{{name}} silinsin mi? Başka bir model seçene kadar nibi transkripsiyon yapamaz.",
       "cancel": "İptal",
       "deleteModel": "{{name}} modelini sil",
       "cancelDownload": "{{name}} indirmesini durdur",
@@ -424,7 +424,7 @@
         "marks": "? henüz ölçülmedi. — o dili duymaz."
       },
       "retiredNotice": {
-        "title": "Eski modeller artık Handy ile çalışmıyor",
+        "title": "Eski modeller artık nibi ile çalışmıyor",
         "description": "Bilgisayarınızda {{size}} yer kaplıyorlar.",
         "delete": "Modelleri sil",
         "deleteFailed": "Bazı eski modeller silinemedi. Ayrıntılar için günlüğe bakın."
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "Geliştirmeyi Destekle",
-        "description": "Handy'yi geliştirmeye devam etmemize yardımcı olun",
+        "description": "nibi'yi geliştirmeye devam etmemize yardımcı olun",
         "button": "Bağış Yap"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Mikrofon bulunamadı",
     "noInputDevice": "Ses giriş aygıtı algılanamadı. Lütfen bir mikrofon veya kulaklık bağlayın ve tekrar deneyin.",
     "recordingFailedTitle": "Kayıt başlatılamadı",
-    "modelLoadFailed": "Handy bu modeli yükleyemedi. Yeniden deneyin veya başka bir model seçin.",
+    "modelLoadFailed": "nibi bu modeli yükleyemedi. Yeniden deneyin veya başka bir model seçin.",
     "modelLoadFailedTitle": "Model yüklenemedi",
     "modelDownloadFailed": "İndirme başarısız oldu",
     "pasteFailedTitle": "Metin yapıştırılamadı",

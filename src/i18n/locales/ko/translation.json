@@ -25,7 +25,7 @@
     "customModelDescription": "공식 지원되지 않음",
     "migration": {
       "title": "모델 업데이트가 필요합니다",
-      "description": "Handy가 이제 새로운 종류의 모델을 사용합니다. 계속 음성 인식을 사용하려면 새 버전을 다운로드하세요. 이전 버전은 삭제됩니다.",
+      "description": "nibi가 이제 새로운 종류의 모델을 사용합니다. 계속 음성 인식을 사용하려면 새 버전을 다운로드하세요. 이전 버전은 삭제됩니다.",
       "replaces": "{{name}} 대체",
       "oldFormat": "이전 형식",
       "failed": "다운로드 실패",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "마이크",
-        "why": "Handy가 목소리를 들을 수 있도록 하기 위한 권한입니다. 오디오는 이 컴퓨터에서 텍스트로 변환되며 업로드되지 않습니다."
+        "why": "nibi가 목소리를 들을 수 있도록 하기 위한 권한입니다. 오디오는 이 컴퓨터에서 텍스트로 변환되며 업로드되지 않습니다."
       },
       "accessibility": {
         "name": "손쉬운 사용",
-        "why": "어떤 앱에서든 단축키가 작동하고, Handy가 커서 위치에 텍스트를 입력할 수 있도록 하기 위한 권한입니다."
+        "why": "어떤 앱에서든 단축키가 작동하고, nibi가 커서 위치에 텍스트를 입력할 수 있도록 하기 위한 권한입니다."
       },
       "errors": {
         "checkFailed": "권한 확인에 실패했습니다. 다시 시도해주세요.",
@@ -80,12 +80,12 @@
       "openSettings": "설정 열기",
       "allowed": "허용됨",
       "waiting": "대기 중",
-      "turnOnMac": "시스템 설정에서 Handy를 켠 다음 여기로 돌아오세요.",
+      "turnOnMac": "시스템 설정에서 nibi를 켠 다음 여기로 돌아오세요.",
       "turnOnWindows": "Windows 설정에서 마이크 접근을 켠 다음 여기로 돌아오세요.",
       "hintBoth": "계속하려면 둘 다 허용하세요",
       "hintMicrophone": "계속하려면 마이크를 허용하세요",
       "welcomeBack": "다시 오셨네요. 하던 곳에서 이어갑니다.",
-      "relaunch": "이후에도 단축키가 반응하지 않나요? <relaunch>Handy를 다시 실행</relaunch>하면 바로 이 화면으로 돌아옵니다.",
+      "relaunch": "이후에도 단축키가 반응하지 않나요? <relaunch>nibi를 다시 실행</relaunch>하면 바로 이 화면으로 돌아옵니다.",
       "description": "nibi가 제대로 작동하려면 몇 가지 권한이 필요합니다."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "어떤 앱에서든 타자 대신 말로 입력하세요",
       "subtitle": "받아쓰기에 사용할 언어를 선택하세요",
       "languagesLabel": "언어",
-      "noMatch": "「{{query}}」와(과) 일치하는 언어가 없습니다. Handy의 모델은 약 100개 언어를 지원하며, 더 많은 언어는 설정에서 볼 수 있습니다.",
+      "noMatch": "「{{query}}」와(과) 일치하는 언어가 없습니다. nibi의 모델은 약 100개 언어를 지원하며, 더 많은 언어는 설정에서 볼 수 있습니다.",
       "appLanguage": "앱 언어",
       "menusIn": "메뉴 언어: <b>{{language}}</b>",
       "chinese": {
-        "question": "{{languages}}을(를) 사용하시네요. Handy가 어떤 글자로 쓸까요?",
+        "question": "{{languages}}을(를) 사용하시네요. nibi가 어떤 글자로 쓸까요?",
         "label": "중국어 글자",
         "zh-Hans": "간체",
         "zh-Hant": "대만",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "한번 해볼까요!",
-      "subtitle": "Handy가 구석에서 차근차근 도와드릴게요",
+      "subtitle": "nibi가 구석에서 차근차근 도와드릴게요",
       "noteLabel": "메모",
       "placeholder": "새 메모",
       "hold": "<keys/>를 누른 채 말하세요.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "준비 완료!",
-      "subMac": "이제 Handy가 메뉴 막대에 있습니다. 어떤 앱에서든 <keys/>를 누르거나 탭해서 말하세요.",
-      "subTray": "이제 Handy가 시스템 트레이에 있습니다. 어떤 앱에서든 <keys/>를 누르거나 탭해서 말하세요.",
+      "subMac": "이제 nibi가 메뉴 막대에 있습니다. 어떤 앱에서든 <keys/>를 누르거나 탭해서 말하세요.",
+      "subTray": "이제 nibi가 시스템 트레이에 있습니다. 어떤 앱에서든 <keys/>를 누르거나 탭해서 말하세요.",
       "hint": "나중에 설정에서 바꿀 수 있습니다",
       "highFiveLabel": "하이파이브",
-      "atLogin": "로그인할 때 Handy 시작",
+      "atLogin": "로그인할 때 nibi 시작",
       "finish": "완료",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "준비됨",
         "languages": "언어",
         "model": "음성 모델",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "선호 언어",
-        "description": "내가 사용하는 언어입니다. Handy가 모델을 추천하는 데 사용합니다.",
+        "description": "내가 사용하는 언어입니다. nibi가 모델을 추천하는 데 사용합니다.",
         "noMatch": "「{{query}}」와(과) 일치하는 언어가 없습니다",
         "weak": "아직 {{languages}}을(를) 잘 인식하는 모델이 없습니다."
       },
@@ -400,17 +400,17 @@
         "fits": "선택한 언어용",
         "untested": "테스트되지 않음"
       },
-      "untestedNote": "Handy에서 테스트하지 않았습니다. 더 느리거나 오류가 더 많을 수 있습니다.",
+      "untestedNote": "nibi에서 테스트하지 않았습니다. 더 느리거나 오류가 더 많을 수 있습니다.",
       "untestedHidden_one": "받아쓰기에 맞춰 조정되지 않은 모델이 {{count}}개 더 있습니다. 검색해서 찾아보세요.",
       "untestedHidden_other": "받아쓰기에 맞춰 조정되지 않은 모델이 {{count}}개 더 있습니다. 검색해서 찾아보세요.",
-      "emptyYours": "아직 모델이 없습니다. 아래에서 하나를 고르면 다운로드된 후 Handy가 사용합니다.",
+      "emptyYours": "아직 모델이 없습니다. 아래에서 하나를 고르면 다운로드된 후 nibi가 사용합니다.",
       "showMore": "{{count}}개 더 보기",
       "showFewer": "간략히 보기",
       "download": "다운로드 후 사용",
       "downloadingThenUse": "{{total}} 중 {{percent}}%, 완료 후 전환됩니다",
       "loading": "로딩 중…",
       "deleteAsk": "{{name}}을(를) 삭제할까요? {{size}}가 확보됩니다.",
-      "deleteAskActive": "{{name}}을(를) 삭제할까요? 다른 모델을 선택하기 전에는 Handy가 전사할 수 없습니다.",
+      "deleteAskActive": "{{name}}을(를) 삭제할까요? 다른 모델을 선택하기 전에는 nibi가 전사할 수 없습니다.",
       "cancel": "취소",
       "deleteModel": "{{name}} 삭제",
       "cancelDownload": "{{name}} 다운로드 중지",
@@ -424,7 +424,7 @@
         "marks": "? 아직 측정되지 않음. — 해당 언어를 인식하지 못함."
       },
       "retiredNotice": {
-        "title": "이전 모델은 더 이상 Handy에서 작동하지 않습니다",
+        "title": "이전 모델은 더 이상 nibi에서 작동하지 않습니다",
         "description": "컴퓨터에서 {{size}}을(를) 차지하고 있습니다.",
         "delete": "모델 삭제",
         "deleteFailed": "일부 이전 모델을 삭제할 수 없습니다. 자세한 내용은 로그를 확인하세요."
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "개발 지원",
-        "description": "Handy 개발을 계속할 수 있도록 도와주세요",
+        "description": "nibi 개발을 계속할 수 있도록 도와주세요",
         "button": "후원하기"
       },
       "acknowledgments": {

@@ -1,5 +1,5 @@
 import React from "react";
-import HandyMascot from "../icons/HandyMascot";
+import avatar from "../../assets/nibi-avatar.png";
 
 interface MascotProps {
   /** Height in px. */
@@ -11,12 +11,16 @@ interface MascotProps {
 // The design's 357×400 image box, kept so sizes and the wave's pivot match it.
 const BOX_ASPECT = 357 / 400;
 
-/** Handy's mascot glove, optionally animated. */
+/** nibi's mascot, using the upstream onboarding animation. */
 export const Mascot: React.FC<MascotProps> = ({ size, animation = null }) => (
   <span
     style={{ width: size * BOX_ASPECT, height: size }}
     className={`relative block origin-[50%_90%] rotate-[-8deg] select-none ${animation === "wave" ? "animate-wave" : animation === "slap" ? "animate-slap" : ""}`}
   >
-    <HandyMascot className="absolute start-[12.6%] top-[7.25%] h-[85.25%] w-auto" />
+    <img
+      src={avatar}
+      alt=""
+      className="absolute inset-0 h-full w-full object-contain"
+    />
   </span>
 );

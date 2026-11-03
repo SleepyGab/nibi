@@ -1205,18 +1205,26 @@ whats_new_last_seen_version?: string; selected_model?: string; onboarding_comple
  * Which input channel to use on the selected microphone device.
  * None means "average all channels" (original behavior).
  */
-selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string; 
+selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string;
 /**
  * Every language the person dictates in (codes, e.g. ["en", "zh"]),
  * picked during onboarding. Empty until then.
  */
-spoken_languages?: string[]; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; model_unload_timeout?: ModelUnloadTimeout; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean; cloud_polish_enabled?: boolean; cloud_polish_provider?: CloudPolishProvider; cloud_polish_mode?: CloudPolishMode; cloud_polish_models?: Partial<{ [key in string]: string }>; cloud_polish_timeout_seconds?: number; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean; 
+spoken_languages?: string[]; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; model_unload_timeout?: ModelUnloadTimeout; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean;
+/**
+ * Explicit opt-in for text-only polishing, independent of legacy shortcuts.
+ */
+cloud_polish_enabled?: boolean; cloud_polish_provider?: CloudPolishProvider; cloud_polish_mode?: CloudPolishMode; cloud_polish_models?: Partial<{ [key in string]: string }>;
+/**
+ * Maximum wait for the text polishing request, not a recording limit.
+ */
+cloud_polish_timeout_seconds?: number; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean;
 /**
  * Experimental, macOS only: move a Bluetooth headset (AirPods) to this
  * Mac while recording, so its microphone does not return silence while
  * another Apple device is playing through it.
  */
-airpods_mode?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number; 
+airpods_mode?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number;
 /**
  * Debug-gated ("beta") receipt-sequenced paste: restore the clipboard only
  * after the target app actually reads the transcript, instead of after a
@@ -1227,7 +1235,7 @@ reliable_paste?: boolean; typing_tool?: TypingTool; external_script_path?: strin
  * Fresh installs default from the OS locale; existing stores are migrated
  * in `apply_settings_migrations`.
  */
-chinese_script?: ChineseScript; transcribe_accelerator?: TranscribeAcceleratorSetting; 
+chinese_script?: ChineseScript; transcribe_accelerator?: TranscribeAcceleratorSetting;
 /**
  * Stable transcribe.cpp device selector. This is derived from the backend's
  * `device_id` when available (or its name for backends such as Metal),
@@ -1243,12 +1251,12 @@ vad_backend?: VadBackend;
  * degrades on long audio. Independent of `vad_enabled`, which only
  * decides whether silence is dropped from recordings.
  */
-long_form_chunking?: boolean; language_detection?: LanguageDetectionMode; 
+long_form_chunking?: boolean; language_detection?: LanguageDetectionMode;
 /**
  * Seconds of speech the language detector hears (debug). Read through
  * [`AppSettings::language_detection_window_samples`], which clamps it.
  */
-language_detection_window_secs?: number; 
+language_detection_window_secs?: number;
 /**
  * Which recording overlay to show: None / Minimal / Live. Streaming mode is
  * not gated on this — that follows model capability. Migrated from the old
@@ -1257,15 +1265,15 @@ language_detection_window_secs?: number;
 overlay_style?: OverlayStyle }
 export type AudioDevice = { index: string; name: string; is_default: boolean }
 export type AutoSubmitKey = "enter" | "ctrl_enter" | "cmd_enter"
-export type AutoUnavailableReason = 
+export type AutoUnavailableReason =
 /**
  * Only one of their languages (or only one at all) fits the model.
  */
-{ kind: "one_language" } | 
+{ kind: "one_language" } |
 /**
  * The detector can't identify these spoken languages.
  */
-{ kind: "undetectable"; languages: string[] } | 
+{ kind: "undetectable"; languages: string[] } |
 /**
  * None of their languages fit the model.
  */
@@ -1280,11 +1288,11 @@ export type ChineseScript =
 /**
  * Keep whatever script the model produced.
  */
-"as_transcribed" | "simplified" | 
+"as_transcribed" | "simplified" |
 /**
  * Traditional, Taiwan forms. Also reads legacy `traditional` (migrated on load).
  */
-"traditional_tw" | 
+"traditional_tw" |
 /**
  * Traditional, in Hong Kong's standard forms.
  */
@@ -1295,16 +1303,16 @@ export type CloudPolishProvider = "deepseek" | "openai" | "anthropic" | "gemini"
 export type CloudPolishStatus = { enabled: boolean; provider: CloudPolishProvider; mode: CloudPolishMode; model: string; timeout_seconds: number; key_configured: boolean; key_preview: string | null; last: LastPolish | null }
 export type CustomSounds = { start: boolean; stop: boolean }
 export type GpuDeviceOption = { id: string; name: string; total_vram_mb: number }
-export type HistoryEntry = { id: number; file_name: string; timestamp: number; saved: boolean; title: string; transcription_text: string; post_processed_text: string | null; post_process_prompt: string | null; post_process_requested: boolean; 
+export type HistoryEntry = { id: number; file_name: string; timestamp: number; saved: boolean; title: string; transcription_text: string; post_processed_text: string | null; post_process_prompt: string | null; post_process_requested: boolean;
 /**
  * The name of the file this entry was transcribed from; `None` for a
  * dictation.
  */
-source_name: string | null; 
+source_name: string | null;
 /**
  * The language it was transcribed in, when known.
  */
-language: string | null; 
+language: string | null;
 /**
  * How that language was chosen; `None` before it was recorded.
  */
@@ -1323,7 +1331,7 @@ export type KeyboardDiagnosticReport = { secure_input_enabled: boolean; culprit_
  * Counts only — key identity is deliberately never captured.
  */
 key_down: number; key_up: number; flags_changed: number; mouse: number; duration_ms: number }
-export type KeyboardImplementation = "tauri" | "handy_keys" | 
+export type KeyboardImplementation = "tauri" | "handy_keys" |
 /**
  * No built-in global shortcuts; trigger Handy via CLI flags or signals
  * (e.g. from a Wayland compositor keybinding).
@@ -1333,11 +1341,11 @@ export type LLMPrompt = { id: string; name: string; prompt: string }
 /**
  * When Handy's spoken-language detector picks the language for Auto.
  */
-export type LanguageDetectionMode = 
+export type LanguageDetectionMode =
 /**
  * Only for models that can't detect the language themselves.
  */
-"when_needed" | 
+"when_needed" |
 /**
  * For every model except streaming ones, restricted to the languages
  * the person speaks.
@@ -1346,20 +1354,20 @@ export type LanguageDetectionMode =
 /**
  * How a transcription's language was chosen.
  */
-export type LanguageSource = 
+export type LanguageSource =
 /**
  * The person picked it, or it is the only language of theirs the model
  * supports.
  */
-"selected" | 
+"selected" |
 /**
  * The model decides: its own detection, or its only language.
  */
-"model" | 
+"model" |
 /**
  * Handy's detector picked it.
  */
-"detected" | 
+"detected" |
 /**
  * Handy had to pick without detecting (too little speech, detection
  * failed or unavailable, or Auto can't work for these languages).
@@ -1370,24 +1378,25 @@ export type LanguageSource =
  * or Auto when it's decided per transcription. Derived from [`plan`], so it
  * can't disagree with what transcription does.
  */
-export type LanguageStatus = 
+export type LanguageStatus =
 /**
  * The language they picked.
  */
-{ kind: "selected"; language: string } | 
+{ kind: "selected"; language: string } |
 /**
  * Decided per transcription: the model's own detection, or Handy's.
  */
-{ kind: "auto" } | 
+{ kind: "auto" } |
 /**
  * Auto needs Handy's detector, which isn't downloaded; `fallback` (the
  * first preferred language) is used until it is.
  */
-{ kind: "detector_missing"; fallback: string } | 
+{ kind: "detector_missing"; fallback: string } |
 /**
  * Auto can't work here; `language` is used instead.
  */
 { kind: "auto_unavailable"; language: string; reason: AutoUnavailableReason }
+export type LastPolish = { original: string; polished: string | null; fallback: boolean }
 export type LogLevel = "trace" | "debug" | "info" | "warn" | "error"
 export type ModelInfo = { id: string; name: string; description: string; filename: string; source: ModelSource; size_mb: number; is_downloaded: boolean; is_downloading: boolean; partial_size: number; accuracy_score: number; speed_score: number; supports_translation: boolean; is_recommended: boolean; supported_languages: string[]; supports_language_selection: boolean; is_custom: boolean; supports_streaming: boolean; supports_language_detection: boolean }
 export type ModelLoadStatus = { is_loaded: boolean; current_model: string | null }
@@ -1416,7 +1425,7 @@ sha256: string | null } } |
  */
 "Local"
 export type ModelUnloadTimeout = "never" | "immediately" | "min_2" | "min_5" | "min_10" | "min_15" | "hour_1" | "sec_15"
-export type Notice = { code: NoticeCode; level: NoticeLevel; source: NoticeSource; 
+export type Notice = { code: NoticeCode; level: NoticeLevel; source: NoticeSource;
 /**
  * What only Rust knows, such as a model name or a raw error.
  */
@@ -1425,11 +1434,11 @@ detail: string | null }
  * The frontend maps each code to its text in `src/lib/notices.ts`.
  */
 export type NoticeCode = "TranscriptionFailed" | "PasteFailed" | "NoMicrophone" | "MicPermissionDenied" | "RecordingFailed" | "ModelLoadFailed" | "PostProcessFailed" | "FileTranscriptionFailed" | "FilePostProcessFailed"
-export type NoticeLevel = 
+export type NoticeLevel =
 /**
  * Nothing came out, or Handy can't do its job.
  */
-"error" | 
+"error" |
 /**
  * The user got a result, but not the one they set up.
  */
@@ -1440,11 +1449,11 @@ export type NoticeLevel =
  * `Model` is a switch the user made in Settings or the tray.
  */
 export type NoticeSource = "dictation" | "file" | "model"
-export type NoticesChanged = { 
+export type NoticesChanged = {
 /**
  * Every active notice, newest first.
  */
-notices: Notice[]; 
+notices: Notice[];
 /**
  * `None` when a notice was cleared.
  */
@@ -1464,11 +1473,11 @@ export type PermissionAccess = "allowed" | "denied" | "unknown"
  * Request format a post-processing endpoint speaks. Built-in providers have a
  * fixed format; only the custom provider lets the user change it.
  */
-export type PostProcessApiFormat = 
+export type PostProcessApiFormat =
 /**
  * OpenAI-compatible Chat Completions (`/chat/completions`)
  */
-"openai" | 
+"openai" |
 /**
  * Anthropic Messages (`/messages`)
  */
@@ -1477,20 +1486,20 @@ export type PostProcessProvider = { id: string; label: string; base_url: string;
 /**
  * Recording phase events for windows that follow along (onboarding's Try it).
  */
-export type RecordingPhase = 
+export type RecordingPhase =
 /**
  * Recording began.
  */
-"started" | 
+"started" |
 /**
  * The key came up before the hold threshold (or the binding toggles):
  * recording stays on until the next press.
  */
-"locked" | 
+"locked" |
 /**
  * Recording ended; transcription follows.
  */
-"stopped" | 
+"stopped" |
 /**
  * The session was cancelled.
  */
@@ -1600,15 +1609,15 @@ export type TranscriptionCompleteEvent = { outcome: TranscriptionOutcome; audio_
  * A background transcription of one History entry.
  */
 export type TranscriptionJob = { entry_id: number; status: TranscriptionJobStatus }
-export type TranscriptionJobStatus = 
+export type TranscriptionJobStatus =
 /**
  * Waiting behind another job.
  */
-{ state: "queued" } | 
+{ state: "queued" } |
 /**
  * `percent` of the audio is transcribed.
  */
-{ state: "running"; percent: number } | 
+{ state: "running"; percent: number } |
 /**
  * The entry has its new text, or the job was cancelled.
  */
@@ -1616,19 +1625,19 @@ export type TranscriptionJobStatus =
 /**
  * How a dictation ended.
  */
-export type TranscriptionOutcome = 
+export type TranscriptionOutcome =
 /**
  * The text was typed.
  */
-"typed" | 
+"typed" |
 /**
  * Nothing was heard, so nothing was typed.
  */
-"empty" | 
+"empty" |
 /**
  * The microphone sent only digital silence (e.g. muted).
  */
-"silent" | 
+"silent" |
 /**
  * Transcribing or pasting failed.
  */

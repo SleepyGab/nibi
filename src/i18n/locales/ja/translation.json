@@ -25,7 +25,7 @@
     "customModelDescription": "公式サポート対象外",
     "migration": {
       "title": "モデルの更新が必要です",
-      "description": "Handy は新しい種類のモデルを使用するようになりました。文字起こしを続けるには、新しいバージョンをダウンロードしてください。古いバージョンは削除されます。",
+      "description": "nibi は新しい種類のモデルを使用するようになりました。文字起こしを続けるには、新しいバージョンをダウンロードしてください。古いバージョンは削除されます。",
       "replaces": "{{name}} の後継",
       "oldFormat": "旧形式",
       "failed": "ダウンロードに失敗しました",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "マイク",
-        "why": "Handy があなたの声を聞くために必要です。音声はこのコンピューター上でテキストに変換され、アップロードされることはありません。"
+        "why": "nibi があなたの声を聞くために必要です。音声はこのコンピューター上でテキストに変換され、アップロードされることはありません。"
       },
       "accessibility": {
         "name": "アクセシビリティ",
-        "why": "どのアプリでもショートカットが使え、Handy がカーソル位置にテキストを入力できるようにします。"
+        "why": "どのアプリでもショートカットが使え、nibi がカーソル位置にテキストを入力できるようにします。"
       },
       "errors": {
         "checkFailed": "権限の確認に失敗しました。もう一度お試しください。",
@@ -80,12 +80,12 @@
       "openSettings": "設定を開く",
       "allowed": "許可済み",
       "waiting": "待機中",
-      "turnOnMac": "システム設定で Handy をオンにして、ここに戻ってください。",
+      "turnOnMac": "システム設定で nibi をオンにして、ここに戻ってください。",
       "turnOnWindows": "Windows の設定でマイクへのアクセスをオンにして、ここに戻ってください。",
       "hintBoth": "続けるには両方を許可してください",
       "hintMicrophone": "続けるにはマイクを許可してください",
       "welcomeBack": "おかえりなさい。前回の続きから始めます。",
-      "relaunch": "このあとショートカットが反応しない場合は、<relaunch>Handy を再起動</relaunch>してください。この画面にすぐ戻れます。",
+      "relaunch": "このあとショートカットが反応しない場合は、<relaunch>nibi を再起動</relaunch>してください。この画面にすぐ戻れます。",
       "description": "nibi が正常に動作するにはいくつかの権限が必要です。"
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "どのアプリでも、入力のかわりに話すだけ",
       "subtitle": "音声入力で使う言語を選んでください",
       "languagesLabel": "言語",
-      "noMatch": "「{{query}}」に一致する言語はありません。Handy のモデルは約100言語に対応しており、ほかの言語は設定から選べます。",
+      "noMatch": "「{{query}}」に一致する言語はありません。nibi のモデルは約100言語に対応しており、ほかの言語は設定から選べます。",
       "appLanguage": "アプリの言語",
       "menusIn": "メニューは<b>{{language}}</b>で表示",
       "chinese": {
-        "question": "{{languages}}を話しますね。Handy にはどの文字で書かせますか?",
+        "question": "{{languages}}を話しますね。nibi にはどの文字で書かせますか?",
         "label": "中国語の文字",
         "zh-Hans": "簡体字",
         "zh-Hant": "台湾",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "さっそく試してみよう!",
-      "subtitle": "画面の隅から Handy が案内します",
+      "subtitle": "画面の隅から nibi が案内します",
       "noteLabel": "メモ",
       "placeholder": "新規メモ",
       "hold": "<keys/> を押したまま話してください。",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "準備完了です",
-      "subMac": "Handy はメニューバーにいます。どのアプリでも <keys/> を押したまま、またはタップして話してください。",
-      "subTray": "Handy はシステムトレイにいます。どのアプリでも <keys/> を押したまま、またはタップして話してください。",
+      "subMac": "nibi はメニューバーにいます。どのアプリでも <keys/> を押したまま、またはタップして話してください。",
+      "subTray": "nibi はシステムトレイにいます。どのアプリでも <keys/> を押したまま、またはタップして話してください。",
       "hint": "これらは後から設定で変更できます",
       "highFiveLabel": "ハイタッチ",
-      "atLogin": "ログイン時に Handy を起動する",
+      "atLogin": "ログイン時に nibi を起動する",
       "finish": "完了",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "準備完了",
         "languages": "言語",
         "model": "音声モデル",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "使用する言語",
-        "description": "あなたが話す言語です。Handy はこれをもとにモデルをおすすめします。",
+        "description": "あなたが話す言語です。nibi はこれをもとにモデルをおすすめします。",
         "noMatch": "「{{query}}」に一致する言語はありません",
         "weak": "{{languages}}をうまく認識できるモデルはまだありません。"
       },
@@ -400,17 +400,17 @@
         "fits": "選んだ言語向け",
         "untested": "未テスト"
       },
-      "untestedNote": "Handy ではテストされていません。速度が遅かったり、間違いが多かったりする可能性があります。",
+      "untestedNote": "nibi ではテストされていません。速度が遅かったり、間違いが多かったりする可能性があります。",
       "untestedHidden_one": "音声入力向けに調整されていないモデルがあと {{count}} 個あります。検索で見つけられます。",
       "untestedHidden_other": "音声入力向けに調整されていないモデルがあと {{count}} 個あります。検索で見つけられます。",
-      "emptyYours": "モデルはまだありません。下から選ぶとダウンロードされ、Handy が使用します。",
+      "emptyYours": "モデルはまだありません。下から選ぶとダウンロードされ、nibi が使用します。",
       "showMore": "さらに {{count}} 個を表示",
       "showFewer": "表示を減らす",
       "download": "ダウンロードして使用",
       "downloadingThenUse": "{{total}} のうち {{percent}}%、完了後に切り替え",
       "loading": "読み込み中…",
       "deleteAsk": "{{name}} を削除しますか? {{size}} の空き容量が増えます。",
-      "deleteAskActive": "{{name}} を削除しますか? ほかのモデルを選ぶまで、Handy は文字起こしできません。",
+      "deleteAskActive": "{{name}} を削除しますか? ほかのモデルを選ぶまで、nibi は文字起こしできません。",
       "cancel": "キャンセル",
       "deleteModel": "{{name}} を削除",
       "cancelDownload": "{{name}} のダウンロードを中止",
@@ -424,7 +424,7 @@
         "marks": "? はまだ測定されていません。— はその言語を聞き取れません。"
       },
       "retiredNotice": {
-        "title": "古いモデルは Handy で使用できなくなりました",
+        "title": "古いモデルは nibi で使用できなくなりました",
         "description": "コンピューター上で {{size}} を使用しています。",
         "delete": "モデルを削除",
         "deleteFailed": "一部の古いモデルを削除できませんでした。詳細はログを確認してください。"
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "開発を支援",
-        "description": "Handy の開発を支援してください",
+        "description": "nibi の開発を支援してください",
         "button": "寄付する"
       },
       "acknowledgments": {

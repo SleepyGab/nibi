@@ -26,7 +26,7 @@
     "customModelDescription": "非官方支持",
     "migration": {
       "title": "您的模型需要更新",
-      "description": "Handy 现在使用一种更新的模型类型。请下载新版本以继续转录。旧版本将被移除。",
+      "description": "nibi 现在使用一种更新的模型类型。请下载新版本以继续转录。旧版本将被移除。",
       "replaces": "替代 {{name}}",
       "oldFormat": "旧格式",
       "failed": "下载失败",
@@ -63,11 +63,11 @@
     "permissions": {
       "microphone": {
         "name": "麦克风",
-        "why": "这样 Handy 才能听到您说话。音频只在这台电脑上转成文字，绝不会上传。"
+        "why": "这样 nibi 才能听到您说话。音频只在这台电脑上转成文字，绝不会上传。"
       },
       "accessibility": {
         "name": "辅助功能",
-        "why": "这样快捷键在每个应用中都能使用，Handy 也能把文字输入到光标所在的位置。"
+        "why": "这样快捷键在每个应用中都能使用，nibi 也能把文字输入到光标所在的位置。"
       },
       "errors": {
         "checkFailed": "检查权限失败。请重试。",
@@ -82,12 +82,12 @@
       "openSettings": "打开设置",
       "allowed": "已允许",
       "waiting": "等待中",
-      "turnOnMac": "请在“系统设置”中打开 Handy，然后回到这里。",
+      "turnOnMac": "请在“系统设置”中打开 nibi，然后回到这里。",
       "turnOnWindows": "请在“Windows 设置”中打开麦克风访问权限，然后回到这里。",
       "hintBoth": "请允许两项权限后继续",
       "hintMicrophone": "请允许使用麦克风后继续",
       "welcomeBack": "欢迎回来，我们接着刚才的步骤继续。",
-      "relaunch": "之后快捷键没有反应？<relaunch>重新启动 Handy</relaunch>，您会直接回到这里。",
+      "relaunch": "之后快捷键没有反应？<relaunch>重新启动 nibi</relaunch>，您会直接回到这里。",
       "recheck": "重新检查",
       "restart": "重启 nibi",
       "recovery": {
@@ -106,11 +106,11 @@
       "title": "在任何应用中，动口不动手",
       "subtitle": "选择您要用来听写的语言",
       "languagesLabel": "语言",
-      "noMatch": "没有与“{{query}}”匹配的语言。Handy 的模型涵盖约 100 种语言，更多语言可在设置中找到。",
+      "noMatch": "没有与“{{query}}”匹配的语言。nibi 的模型涵盖约 100 种语言，更多语言可在设置中找到。",
       "appLanguage": "应用语言",
       "menusIn": "菜单语言：<b>{{language}}</b>",
       "chinese": {
-        "question": "您说{{languages}}。Handy 应该写哪种汉字？",
+        "question": "您说{{languages}}。nibi 应该写哪种汉字？",
         "label": "汉字",
         "zh-Hans": "简体",
         "zh-Hant": "台湾繁体",
@@ -180,7 +180,7 @@
     },
     "try": {
       "title": "来试一试吧！",
-      "subtitle": "Handy 就在角落里，带您一步步体验",
+      "subtitle": "nibi 就在角落里，带您一步步体验",
       "noteLabel": "备忘录",
       "placeholder": "新备忘录",
       "hold": "按住 <keys/> 并说话。",
@@ -208,14 +208,14 @@
     },
     "done": {
       "title": "一切就绪",
-      "subMac": "Handy 现在位于菜单栏中。在任何应用里按住或轻按 <keys/> 即可说话。",
-      "subTray": "Handy 现在位于系统托盘中。在任何应用里按住或轻按 <keys/> 即可说话。",
+      "subMac": "nibi 现在位于菜单栏中。在任何应用里按住或轻按 <keys/> 即可说话。",
+      "subTray": "nibi 现在位于系统托盘中。在任何应用里按住或轻按 <keys/> 即可说话。",
       "hint": "这些内容以后可以在“设置”中更改",
       "highFiveLabel": "击掌",
-      "atLogin": "登录时启动 Handy",
+      "atLogin": "登录时启动 nibi",
       "finish": "完成",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "已就绪",
         "languages": "语言",
         "model": "语音模型",
@@ -382,7 +382,7 @@
       },
       "preferredLanguages": {
         "title": "常用语言",
-        "description": "您会说的语言。Handy 会据此推荐模型。",
+        "description": "您会说的语言。nibi 会据此推荐模型。",
         "noMatch": "没有与“{{query}}”匹配的语言",
         "weak": "目前还没有模型能很好地识别{{languages}}。"
       },
@@ -409,17 +409,17 @@
         "fits": "适合您的语言",
         "untested": "未测试"
       },
-      "untestedNote": "尚未经过 Handy 测试，可能更慢或错误更多。",
+      "untestedNote": "尚未经过 nibi 测试，可能更慢或错误更多。",
       "untestedHidden_one": "另有 {{count}} 个模型未针对听写优化，可通过搜索找到。",
       "untestedHidden_other": "另有 {{count}} 个模型未针对听写优化，可通过搜索找到。",
-      "emptyYours": "还没有模型。请在下方选择一个：它会先下载，然后由 Handy 使用。",
+      "emptyYours": "还没有模型。请在下方选择一个：它会先下载，然后由 nibi 使用。",
       "showMore": "再显示 {{count}} 个",
       "showFewer": "收起",
       "download": "下载并使用",
       "downloadingThenUse": "{{percent}}%（共 {{total}}），完成后自动切换",
       "loading": "加载中…",
       "deleteAsk": "删除{{name}}？这将释放 {{size}}。",
-      "deleteAskActive": "删除{{name}}？在您选择其他模型之前，Handy 无法转录。",
+      "deleteAskActive": "删除{{name}}？在您选择其他模型之前，nibi 无法转录。",
       "cancel": "取消",
       "deleteModel": "删除{{name}}",
       "cancelDownload": "停止下载{{name}}",
@@ -433,7 +433,7 @@
         "marks": "? 表示尚未测量。— 表示听不懂该语言。"
       },
       "retiredNotice": {
-        "title": "旧模型已无法在 Handy 中使用",
+        "title": "旧模型已无法在 nibi 中使用",
         "description": "它们占用了您电脑上 {{size}} 的空间。",
         "delete": "删除模型",
         "deleteFailed": "部分旧模型无法删除。请查看日志了解详情。"
@@ -893,7 +893,7 @@
       },
       "supportDevelopment": {
         "title": "支持开发",
-        "description": "帮助我们继续开发 Handy",
+        "description": "帮助我们继续开发 nibi",
         "button": "捐赠"
       },
       "acknowledgments": {
@@ -951,7 +951,7 @@
     "noInputDeviceTitle": "未找到麦克风",
     "noInputDevice": "未检测到音频输入设备。请连接麦克风或耳机后重试。",
     "recordingFailedTitle": "录音启动失败",
-    "modelLoadFailed": "Handy 无法加载此模型。请重试或选择其他模型。",
+    "modelLoadFailed": "nibi 无法加载此模型。请重试或选择其他模型。",
     "modelLoadFailedTitle": "加载模型失败",
     "modelDownloadFailed": "下载失败",
     "pasteFailedTitle": "粘贴文本失败",

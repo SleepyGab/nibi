@@ -994,7 +994,6 @@ mod tests {
             post_process_requested: false,
             source_name: None,
             language: None,
-            correction_available: false,
             language_source: None,
         }
     }
@@ -1011,6 +1010,7 @@ mod tests {
             locale: "en".to_string(),
             update_checks_enabled: true,
             language: None,
+            correction_available: false,
         }
     }
 

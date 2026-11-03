@@ -1,8 +1,5 @@
 //! Local ASR hints. Shared by dictation and the audio evaluation harness.
 use pinyin::ToPinyin;
-use transcribe_cpp::{
-    RunOptions, Session, Transcript,
-};
 
 pub const MAX_WORDS: usize = 32;
 pub const MAX_WORD_CHARS: usize = 50;
@@ -47,7 +44,7 @@ pub fn validate_words(words: Vec<String>) -> Result<Vec<String>, &'static str> {
 
 /// Bound legacy settings as well as newly validated entries, without changing
 /// persisted data. A malformed/oversized list must not break dictation.
-fn bounded_words(words: &[String]) -> Vec<String> {
+pub(crate) fn bounded_words(words: &[String]) -> Vec<String> {
     let mut selected = Vec::new();
     let mut chars = 0;
     for word in words {
@@ -291,29 +288,25 @@ fn correct_mandarin_terms(text: &str, words: &[String]) -> String {
     result
 }
 
-/// Qwen context can overrule even an explicitly spoken spelling. Obtain the
-/// unprompted result first; skip hints for spelling explanations. A failed hint
-/// pass also keeps that complete local result. No network or output rewrite.
-pub fn transcribe(
-    session: &mut Session,
-    audio: &[f32],
-    options: &RunOptions,
+/// Keep spelling explanations and a complete fallback while letting either
+/// the upstream worker or a local evaluation session perform inference.
+pub(crate) fn decode<T, E>(
     words: &[String],
-) -> transcribe_cpp::Result<Transcript> {
-    let mut hinted = options.clone();
-    hinted.vocabulary = bounded_words(words);
-    if session.model().arch() != "qwen3_asr" || hinted.vocabulary.is_empty() {
-        return session.run(audio, &hinted);
+    protect_spelling: bool,
+    mut run: impl FnMut(&[String]) -> Result<T, E>,
+    text: impl Fn(&T) -> &str,
+    cancelled: impl Fn(&E) -> bool,
+) -> Result<T, E> {
+    if !protect_spelling || words.is_empty() {
+        return run(words);
     }
-    let mut plain = options.clone();
-    plain.vocabulary.clear();
-    let baseline = session.run(audio, &plain)?;
-    if baseline.text.trim().is_empty() || has_spelling_cue(&baseline.text) {
+    let baseline = run(&[])?;
+    if text(&baseline).trim().is_empty() || has_spelling_cue(text(&baseline)) {
         return Ok(baseline);
     }
-    match session.run(audio, &hinted) {
-        Ok(result) if !result.text.trim().is_empty() => Ok(result),
-        Err(error @ transcribe_cpp::Error::Aborted { .. }) => Err(error),
+    match run(words) {
+        Ok(result) if !text(&result).trim().is_empty() => Ok(result),
+        Err(error) if cancelled(&error) => Err(error),
         _ => {
             log::warn!("Local vocabulary pass unavailable; retaining unprompted transcription");
             Ok(baseline)
@@ -324,6 +317,70 @@ pub fn transcribe(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn worker_vocabulary_preserves_spelling_and_propagates_cancellation() {
+        let words = vec!["NovaLoom".into()];
+        for baseline in ["It is spelled N O V A.", "   "] {
+            let mut calls = 0;
+            let result: Result<String, &str> = decode(
+                &words,
+                true,
+                |vocabulary| {
+                    calls += 1;
+                    assert!(vocabulary.is_empty());
+                    Ok(baseline.to_string())
+                },
+                String::as_str,
+                |error| *error == "cancelled",
+            );
+            assert_eq!(result.unwrap(), baseline);
+            assert_eq!(calls, 1);
+        }
+
+        for hinted in [Ok("".to_string()), Err("failed"), Err("cancelled")] {
+            let mut outcomes = vec![Ok("complete original".to_string()), hinted.clone()];
+            let mut calls = Vec::new();
+            let result = decode(
+                &words,
+                true,
+                |vocabulary| {
+                    calls.push(vocabulary.to_vec());
+                    outcomes.remove(0)
+                },
+                String::as_str,
+                |error| *error == "cancelled",
+            );
+            assert_eq!(calls, vec![vec![], words.clone()]);
+            assert_eq!(
+                result,
+                if hinted == Err("cancelled") {
+                    Err("cancelled")
+                } else {
+                    Ok("complete original".to_string())
+                }
+            );
+        }
+    }
+
+    #[test]
+    fn worker_vocabulary_uses_native_hints_without_extra_runs_for_other_models() {
+        let words = vec!["NovaLoom".into()];
+        let mut calls = 0;
+        let result: Result<String, &str> = decode(
+            &words,
+            false,
+            |vocabulary| {
+                calls += 1;
+                assert_eq!(vocabulary, words);
+                Ok("NovaLoom".to_string())
+            },
+            String::as_str,
+            |_| false,
+        );
+        assert_eq!(result.unwrap(), "NovaLoom");
+        assert_eq!(calls, 1);
+    }
 
     #[test]
     fn fallback_uses_mandarin_vocabulary_inside_continuous_text() {

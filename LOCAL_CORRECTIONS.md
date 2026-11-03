@@ -51,15 +51,15 @@ before success is shown. Replacement rules remain separate in
 `local_corrections.json`, and their enable switch does not disable vocabulary.
 The existing JSON transfer controls transfer replacement rules only, as labeled.
 
-Qwen3-ASR receives bounded vocabulary as native system context through a pinned
-local patch of transcribe.cpp 0.2.4 (see `src-tauri/vendor/PATCHES.md`). Whisper
-keeps its native prompt. Other engines use local English term correction;
-Mandarin output also supports bounded near-homophone correction inside continuous
-text. Matches require pronunciation and spelling agreement; competing dictionary
-entries keep the original. Two-character names require an explicit entity cue.
-Latin terms embedded in Chinese are matched as separate spans. Explicit spelling
-explanations bypass fallback correction for every engine.
-Qwen/Whisper output is not corrected a second time by the fuzzy matcher.
+Models advertising native vocabulary support receive bounded terms through
+transcribe.cpp 0.4.0's `RunOptions.vocabulary` API, including Qwen3-ASR and
+Whisper. No vendored inference crates or private Qwen ABI are required.
+Other models use local English term correction; Mandarin output also supports
+bounded near-homophone correction inside continuous text. Matches require
+pronunciation and spelling agreement; competing dictionary entries keep the
+original. Two-character names require an explicit entity cue. Latin terms
+embedded in Chinese are matched as separate spans. Explicit spelling explanations
+bypass fallback correction. Native-hinted output is not fuzzy-corrected again.
 
 For Qwen with a nonempty vocabulary, a local unprompted pass protects explicitly
 spoken spelling (such as 木头的木 or “spelled ...”); such utterances keep that
@@ -75,20 +75,23 @@ the resulting transcription text is still sent as before.
 
 ## Progressive long recordings
 
-Qwen3-ASR and Cohere reuse Handy's pause-ranking planner, adapted to 20-second
-targets and 25-second maximum core chunks with three seconds of shared context.
-The live worker decodes completed chunks while recording, retaining a bounded
-pending tail. Stopping decodes that tail, not the completed recording again.
-Boundary context stays tentative in the overlay and is merged with bounded
-text alignment that tolerates small recognition differences. A truncated decode
-is retried on shorter audio; a permanent failure is never reported as a complete
-transcript. Live and saved-recording sample counts must agree before a live
-result is used. Parakeet Unified EN retains native streaming.
+Recording and batch transcription share upstream's `Chunker` and
+`ChunkedDecode`, with live dispatch through `LiveSession`. The loaded model's
+capabilities decide whether to stream natively, decode long audio in pause-based
+chunks or use one whole run. Chunking targets 30 seconds with a 40-second maximum;
+Advanced → Long Audio Chunking controls it. This replaces the fork's earlier
+20/25-second planner, overlap and retry implementation.
 
-`cargo run --example dictation_eval -- MODEL LANGUAGE WORDS_JSON WAV...` evaluates
-the same local vocabulary and live decode helpers using 16 kHz mono int16 WAVs.
-It reports updates before stopping and final-tail time, and checks native
-cancellation and session reuse. Use invented phrases for evaluation recordings.
+The supervised worker owns inference and cancellation. Finishing a recording
+checks sample coverage before accepting live results; otherwise it falls back to
+batch. Waiting behind a model load is not a finalization timeout. ONNX engines
+are retired; upstream's model replacement UI handles those installations.
+
+The `vocabulary_eval` and `vocabulary_native_checks` examples now exercise the
+upstream vocabulary API. The old `dictation_eval` harness depended on the removed
+ONNX and local long-form implementation and has been retired. Use the upstream
+headless transcription CLI and synthetic WAVs for whole-pipeline evaluation;
+see [the migration report](docs/HANDY_V0.10.0_MIGRATION.md).
 
 ## Dictionary transfer
 

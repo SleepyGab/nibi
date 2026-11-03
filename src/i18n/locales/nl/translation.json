@@ -25,7 +25,7 @@
     "customModelDescription": "Niet officieel ondersteund",
     "migration": {
       "title": "Je modellen moeten worden bijgewerkt",
-      "description": "Handy gebruikt nu een nieuwer soort model. Download de nieuwe versie om te blijven transcriberen. Oude versies worden verwijderd.",
+      "description": "nibi gebruikt nu een nieuwer soort model. Download de nieuwe versie om te blijven transcriberen. Oude versies worden verwijderd.",
       "replaces": "Vervangt {{name}}",
       "oldFormat": "Oud formaat",
       "failed": "Downloaden mislukt",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Microfoon",
-        "why": "Zodat Handy je kan horen. Audio wordt op deze computer omgezet in tekst en nooit geüpload."
+        "why": "Zodat nibi je kan horen. Audio wordt op deze computer omgezet in tekst en nooit geüpload."
       },
       "accessibility": {
         "name": "Toegankelijkheid",
-        "why": "Zodat je sneltoets in elke app werkt en Handy de tekst kan typen waar je cursor staat."
+        "why": "Zodat je sneltoets in elke app werkt en nibi de tekst kan typen waar je cursor staat."
       },
       "errors": {
         "checkFailed": "Machtigingen controleren mislukt. Probeer het opnieuw.",
@@ -80,12 +80,12 @@
       "openSettings": "Instellingen openen",
       "allowed": "Toegestaan",
       "waiting": "Wachten",
-      "turnOnMac": "Zet Handy aan in Systeeminstellingen en kom dan hier terug.",
+      "turnOnMac": "Zet nibi aan in Systeeminstellingen en kom dan hier terug.",
       "turnOnWindows": "Zet toegang tot de microfoon aan in Windows-instellingen en kom dan hier terug.",
       "hintBoth": "Sta beide toe om door te gaan",
       "hintMicrophone": "Sta de microfoon toe om door te gaan",
       "welcomeBack": "Welkom terug. We gaan verder waar je was gebleven.",
-      "relaunch": "Reageert de sneltoets hierna niet? <relaunch>Start Handy opnieuw</relaunch> en je komt direct weer hier uit.",
+      "relaunch": "Reageert de sneltoets hierna niet? <relaunch>Start nibi opnieuw</relaunch> en je komt direct weer hier uit.",
       "description": "nibi heeft een aantal machtigingen nodig om goed te kunnen werken."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Praat in plaats van typen, in elke app",
       "subtitle": "Kies de talen waarin je gaat dicteren",
       "languagesLabel": "Talen",
-      "noMatch": "Geen taal gevonden voor „{{query}}”. De modellen van Handy dekken ongeveer 100 talen; meer vind je in de instellingen.",
+      "noMatch": "Geen taal gevonden voor „{{query}}”. De modellen van nibi dekken ongeveer 100 talen; meer vind je in de instellingen.",
       "appLanguage": "App-taal",
       "menusIn": "Menu’s in het <b>{{language}}</b>",
       "chinese": {
-        "question": "Je spreekt {{languages}}. Welke tekens moet Handy schrijven?",
+        "question": "Je spreekt {{languages}}. Welke tekens moet nibi schrijven?",
         "label": "Chinese tekens",
         "zh-Hans": "Vereenvoudigd",
         "zh-Hant": "Taiwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "Probeer het maar!",
-      "subtitle": "Handy staat in de hoek om je er doorheen te helpen",
+      "subtitle": "nibi staat in de hoek om je er doorheen te helpen",
       "noteLabel": "Notitie",
       "placeholder": "Nieuwe notitie",
       "hold": "Houd <keys/> ingedrukt en praat.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Alles is klaar",
-      "subMac": "Handy staat nu in je menubalk. Houd <keys/> ingedrukt of tik erop in elke app om te praten.",
-      "subTray": "Handy staat nu in je systeemvak. Houd <keys/> ingedrukt of tik erop in elke app om te praten.",
+      "subMac": "nibi staat nu in je menubalk. Houd <keys/> ingedrukt of tik erop in elke app om te praten.",
+      "subTray": "nibi staat nu in je systeemvak. Houd <keys/> ingedrukt of tik erop in elke app om te praten.",
       "hint": "Je kunt dit later wijzigen in de instellingen",
       "highFiveLabel": "High five",
-      "atLogin": "Handy starten als ik inlog",
+      "atLogin": "nibi starten als ik inlog",
       "finish": "Klaar",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Klaar",
         "languages": "Talen",
         "model": "Spraakmodel",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Voorkeurstalen",
-        "description": "De talen die je spreekt. Handy gebruikt ze om modellen aan te bevelen.",
+        "description": "De talen die je spreekt. nibi gebruikt ze om modellen aan te bevelen.",
         "noMatch": "Geen taal gevonden voor „{{query}}”",
         "weak": "Geen enkel model herkent {{languages}} al goed."
       },
@@ -400,17 +400,17 @@
         "fits": "Voor jouw talen",
         "untested": "Niet getest"
       },
-      "untestedNote": "Niet getest met Handy. Ze kunnen langzamer zijn of meer fouten maken.",
+      "untestedNote": "Niet getest met nibi. Ze kunnen langzamer zijn of meer fouten maken.",
       "untestedHidden_one": "{{count}} ander model is niet afgestemd op dicteren. Zoek om het te vinden.",
       "untestedHidden_other": "{{count}} andere modellen zijn niet afgestemd op dicteren. Zoek om er een te vinden.",
-      "emptyYours": "Nog geen modellen. Kies hieronder een model: het wordt gedownload en daarna gebruikt Handy het.",
+      "emptyYours": "Nog geen modellen. Kies hieronder een model: het wordt gedownload en daarna gebruikt nibi het.",
       "showMore": "{{count}} meer tonen",
       "showFewer": "Minder tonen",
       "download": "Downloaden en gebruiken",
       "downloadingThenUse": "{{percent}}% van {{total}}, daarna wordt overgeschakeld",
       "loading": "Laden…",
       "deleteAsk": "{{name}} verwijderen? Dit maakt {{size}} vrij.",
-      "deleteAskActive": "{{name}} verwijderen? Handy kan niet transcriberen totdat je een ander model kiest.",
+      "deleteAskActive": "{{name}} verwijderen? nibi kan niet transcriberen totdat je een ander model kiest.",
       "cancel": "Annuleren",
       "deleteModel": "{{name}} verwijderen",
       "cancelDownload": "Downloaden van {{name}} stoppen",
@@ -424,7 +424,7 @@
         "marks": "? is nog niet gemeten. — verstaat die taal niet."
       },
       "retiredNotice": {
-        "title": "Oude modellen werken niet meer met Handy",
+        "title": "Oude modellen werken niet meer met nibi",
         "description": "Ze nemen {{size}} in beslag op je computer.",
         "delete": "Modellen verwijderen",
         "deleteFailed": "Sommige oude modellen konden niet worden verwijderd. Bekijk het logboek voor details."
@@ -888,7 +888,7 @@
       },
       "supportDevelopment": {
         "title": "Ontwikkeling ondersteunen",
-        "description": "Help ons om te blijven bouwen aan Handy",
+        "description": "Help ons om te blijven bouwen aan nibi",
         "button": "Doneren"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Geen microfoon gevonden",
     "noInputDevice": "Er is geen audio-invoerapparaat gedetecteerd. Sluit een microfoon of headset aan en probeer het opnieuw.",
     "recordingFailedTitle": "Opname starten mislukt",
-    "modelLoadFailed": "Handy kon dit model niet laden. Probeer het opnieuw of kies een ander model.",
+    "modelLoadFailed": "nibi kon dit model niet laden. Probeer het opnieuw of kies een ander model.",
     "modelLoadFailedTitle": "Model laden mislukt",
     "modelDownloadFailed": "Downloaden mislukt",
     "pasteFailedTitle": "Tekst plakken mislukt",

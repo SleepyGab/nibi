@@ -25,7 +25,7 @@
     "customModelDescription": "Non officiellement pris en charge",
     "migration": {
       "title": "Vos modèles doivent être mis à jour",
-      "description": "Handy utilise désormais un nouveau type de modèle. Téléchargez la nouvelle version pour continuer à transcrire. Les anciennes versions seront supprimées.",
+      "description": "nibi utilise désormais un nouveau type de modèle. Téléchargez la nouvelle version pour continuer à transcrire. Les anciennes versions seront supprimées.",
       "replaces": "Remplace {{name}}",
       "oldFormat": "Ancien format",
       "failed": "Échec du téléchargement",
@@ -62,11 +62,11 @@
     "permissions": {
       "microphone": {
         "name": "Microphone",
-        "why": "Pour que Handy puisse vous entendre. L'audio est converti en texte sur cet ordinateur et n'est jamais envoyé ailleurs."
+        "why": "Pour que nibi puisse vous entendre. L'audio est converti en texte sur cet ordinateur et n'est jamais envoyé ailleurs."
       },
       "accessibility": {
         "name": "Accessibilité",
-        "why": "Pour que votre raccourci fonctionne dans toutes les apps et que Handy puisse saisir le texte là où se trouve votre curseur."
+        "why": "Pour que votre raccourci fonctionne dans toutes les apps et que nibi puisse saisir le texte là où se trouve votre curseur."
       },
       "errors": {
         "checkFailed": "Échec de la vérification des autorisations. Veuillez réessayer.",
@@ -80,12 +80,12 @@
       "openSettings": "Ouvrir les réglages",
       "allowed": "Autorisé",
       "waiting": "En attente",
-      "turnOnMac": "Activez Handy dans Réglages Système, puis revenez ici.",
+      "turnOnMac": "Activez nibi dans Réglages Système, puis revenez ici.",
       "turnOnWindows": "Activez l'accès au microphone dans les Paramètres Windows, puis revenez ici.",
       "hintBoth": "Autorisez les deux pour continuer",
       "hintMicrophone": "Autorisez le microphone pour continuer",
       "welcomeBack": "Content de vous revoir. On reprend là où vous en étiez.",
-      "relaunch": "Le raccourci ne répond pas après ça ? <relaunch>Relancez Handy</relaunch> et vous reviendrez directement ici.",
+      "relaunch": "Le raccourci ne répond pas après ça ? <relaunch>Relancez nibi</relaunch> et vous reviendrez directement ici.",
       "description": "nibi a besoin de quelques autorisations pour fonctionner correctement."
     },
     "shell": {
@@ -97,11 +97,11 @@
       "title": "Parlez au lieu de taper, dans n'importe quelle app",
       "subtitle": "Choisissez les langues que vous allez dicter",
       "languagesLabel": "Langues",
-      "noMatch": "Aucune langue ne correspond à « {{query}} ». Les modèles de Handy couvrent environ 100 langues ; d'autres sont disponibles dans les paramètres.",
+      "noMatch": "Aucune langue ne correspond à « {{query}} ». Les modèles de nibi couvrent environ 100 langues ; d'autres sont disponibles dans les paramètres.",
       "appLanguage": "Langue de l'app",
       "menusIn": "Menus en <b>{{language}}</b>",
       "chinese": {
-        "question": "Vous parlez {{languages}}. Quels caractères Handy doit-il écrire ?",
+        "question": "Vous parlez {{languages}}. Quels caractères nibi doit-il écrire ?",
         "label": "Caractères chinois",
         "zh-Hans": "Simplifié",
         "zh-Hant": "Taïwan",
@@ -171,7 +171,7 @@
     },
     "try": {
       "title": "À vous de jouer !",
-      "subtitle": "Handy est dans le coin pour vous guider",
+      "subtitle": "nibi est dans le coin pour vous guider",
       "noteLabel": "Note",
       "placeholder": "Nouvelle note",
       "hold": "Maintenez <keys/> et parlez.",
@@ -199,14 +199,14 @@
     },
     "done": {
       "title": "Tout est prêt",
-      "subMac": "Handy est maintenant dans votre barre des menus. Maintenez ou appuyez sur <keys/> dans n'importe quelle app pour parler.",
-      "subTray": "Handy est maintenant dans votre zone de notification. Maintenez ou appuyez sur <keys/> dans n'importe quelle app pour parler.",
+      "subMac": "nibi est maintenant dans votre barre des menus. Maintenez ou appuyez sur <keys/> dans n'importe quelle app pour parler.",
+      "subTray": "nibi est maintenant dans votre zone de notification. Maintenez ou appuyez sur <keys/> dans n'importe quelle app pour parler.",
       "hint": "Vous pourrez modifier tout cela plus tard dans les Paramètres",
       "highFiveLabel": "Tope là",
-      "atLogin": "Lancer Handy à l'ouverture de ma session",
+      "atLogin": "Lancer nibi à l'ouverture de ma session",
       "finish": "Terminé",
       "panel": {
-        "name": "Handy",
+        "name": "nibi",
         "ready": "Prêt",
         "languages": "Langues",
         "model": "Modèle vocal",
@@ -373,7 +373,7 @@
       },
       "preferredLanguages": {
         "title": "Langues préférées",
-        "description": "Les langues que vous parlez. Handy s'en sert pour recommander des modèles.",
+        "description": "Les langues que vous parlez. nibi s'en sert pour recommander des modèles.",
         "noMatch": "Aucune langue ne correspond à « {{query}} »",
         "weak": "Aucun modèle ne reconnaît bien {{languages}} pour l'instant."
       },
@@ -400,17 +400,17 @@
         "fits": "Pour vos langues",
         "untested": "Non testés"
       },
-      "untestedNote": "Non testés avec Handy. Ils peuvent être plus lents ou faire plus d'erreurs.",
+      "untestedNote": "Non testés avec nibi. Ils peuvent être plus lents ou faire plus d'erreurs.",
       "untestedHidden_one": "{{count}} autre modèle n'est pas adapté à la dictée. Utilisez la recherche pour le trouver.",
       "untestedHidden_other": "{{count}} autres modèles ne sont pas adaptés à la dictée. Utilisez la recherche pour en trouver un.",
-      "emptyYours": "Aucun modèle pour l'instant. Choisissez-en un ci-dessous : il se télécharge, puis Handy l'utilise.",
+      "emptyYours": "Aucun modèle pour l'instant. Choisissez-en un ci-dessous : il se télécharge, puis nibi l'utilise.",
       "showMore": "Afficher {{count}} de plus",
       "showFewer": "Afficher moins",
       "download": "Télécharger et utiliser",
       "downloadingThenUse": "{{percent}} % sur {{total}}, puis bascule",
       "loading": "Chargement…",
       "deleteAsk": "Supprimer {{name}} ? Cela libère {{size}}.",
-      "deleteAskActive": "Supprimer {{name}} ? Handy ne pourra plus transcrire tant que vous n'en aurez pas choisi un autre.",
+      "deleteAskActive": "Supprimer {{name}} ? nibi ne pourra plus transcrire tant que vous n'en aurez pas choisi un autre.",
       "cancel": "Annuler",
       "deleteModel": "Supprimer {{name}}",
       "cancelDownload": "Arrêter le téléchargement de {{name}}",
@@ -424,7 +424,7 @@
         "marks": "? n'a pas encore été mesuré. — ne comprend pas cette langue."
       },
       "retiredNotice": {
-        "title": "Les anciens modèles ne fonctionnent plus avec Handy",
+        "title": "Les anciens modèles ne fonctionnent plus avec nibi",
         "description": "Ils occupent {{size}} sur votre ordinateur.",
         "delete": "Supprimer les modèles",
         "deleteFailed": "Certains anciens modèles n'ont pas pu être supprimés. Consultez le journal pour plus de détails."
@@ -884,7 +884,7 @@
       },
       "supportDevelopment": {
         "title": "Soutenir le développement",
-        "description": "Aidez-nous à continuer à construire Handy",
+        "description": "Aidez-nous à continuer à construire nibi",
         "button": "Faire un don"
       },
       "acknowledgments": {
@@ -942,7 +942,7 @@
     "noInputDeviceTitle": "Aucun microphone trouvé",
     "noInputDevice": "Aucun périphérique d'entrée audio n'a été détecté. Veuillez connecter un microphone ou un casque et réessayer.",
     "recordingFailedTitle": "Échec de l'enregistrement",
-    "modelLoadFailed": "Handy n'a pas pu charger ce modèle. Réessayez ou choisissez-en un autre.",
+    "modelLoadFailed": "nibi n'a pas pu charger ce modèle. Réessayez ou choisissez-en un autre.",
     "modelLoadFailedTitle": "Échec du chargement du modèle",
     "modelDownloadFailed": "Échec du téléchargement",
     "pasteFailedTitle": "Échec du collage du texte",

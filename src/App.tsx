@@ -105,16 +105,6 @@ function App() {
     checkOnboardingStatus();
   }, []);
 
-  // Explain why the unmodified text was pasted when cloud polishing fails.
-  useEffect(() => {
-    const unlisten = listen("cloud-polish-fallback", () => {
-      toast.warning(t("cloudPolish.fallback"));
-    });
-    return () => {
-      void unlisten.then((stop) => stop());
-    };
-  }, [t]);
-
   // Initialize RTL direction when language changes
   useEffect(() => {
     initializeRTL(i18n.language);

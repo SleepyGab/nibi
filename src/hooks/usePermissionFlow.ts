@@ -7,7 +7,7 @@ import {
   requestMicrophonePermission,
 } from "tauri-plugin-macos-permissions-api";
 import { useTranslation } from "react-i18next";
-import { toast } from "sonner";
+import { notify } from "@/stores/noticeStore";
 import { commands } from "@/bindings";
 import { useSettingsStore } from "@/stores/settingsStore";
 import {
@@ -139,7 +139,7 @@ export function usePermissionFlow(onComplete: () => void, preview: boolean) {
           microphone: prev.microphone === "granted" ? "granted" : "needed",
         }));
         if (errors === 3)
-          toast.error(t("onboarding.permissions.errors.checkFailed"));
+          notify({ title: t("onboarding.permissions.errors.checkFailed") });
       } finally {
         checking = false;
       }
@@ -191,7 +191,7 @@ export function usePermissionFlow(onComplete: () => void, preview: boolean) {
   }, [permissions.accessibility, permissions.microphone]);
 
   const request = useCallback(
-    async (kind: PermissionKind) => {
+    async (kind: PermissionKind, openMicrophoneSettings = false) => {
       if (preview) return;
       setPermissions((prev) => ({ ...prev, [kind]: "waiting" }));
       try {
@@ -200,7 +200,7 @@ export function usePermissionFlow(onComplete: () => void, preview: boolean) {
             if (kind === "accessibility") {
               await requestAccessibilityPermission();
               await openAccessibilitySettings();
-            } else if (isWindows) {
+            } else if (isWindows || openMicrophoneSettings) {
               const result = await commands.openMicrophonePrivacySettings();
               if (result.status === "error") throw new Error(result.error);
             } else {
@@ -217,7 +217,7 @@ export function usePermissionFlow(onComplete: () => void, preview: boolean) {
           [kind]: prev[kind] === "granted" ? "granted" : "needed",
         }));
         setNeedsRecovery(true);
-        toast.error(t("onboarding.permissions.errors.requestFailed"));
+        notify({ title: t("onboarding.permissions.errors.requestFailed") });
       }
     },
     [isWindows, preview, t],
