@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use super::{VadFrame, VoiceActivityDetector};
+use super::{check_whole_frames, SpeechScorer, VadFrame, VoiceActivityDetector};
 
 pub const EARSHOT_FRAME_SAMPLES: usize = 256;
 
@@ -31,9 +31,8 @@ impl EarshotVad {
 }
 
 impl EarshotVad {
-    /// Raw speech probability for pause-based chunk planning. Scoring never
-    /// removes audio and uses a fresh detector independent of the recorder.
-    pub fn speech_probability(&mut self, frame: &[f32]) -> Result<f32> {
+    /// The speech score of one frame.
+    fn score_frame(&mut self, frame: &[f32]) -> Result<f32> {
         if frame.len() != EARSHOT_FRAME_SAMPLES {
             anyhow::bail!(
                 "expected {EARSHOT_FRAME_SAMPLES} samples, got {}",
@@ -48,22 +47,22 @@ impl EarshotVad {
         // signal can ring slightly outside [-1, 1]. Earshot documents that
         // range as a precondition and asserts it in debug builds, so clamp only
         // the prediction input while preserving the original audio on output.
-        let score = if frame.iter().all(|sample| (-1.0..=1.0).contains(sample)) {
-            self.engine.predict_f32(frame)
-        } else {
-            for (clamped, sample) in self.clamped_frame.iter_mut().zip(frame) {
-                *clamped = sample.clamp(-1.0, 1.0);
-            }
-            self.engine.predict_f32(&self.clamped_frame)
-        };
-
-        Ok(score)
+        Ok(
+            if frame.iter().all(|sample| (-1.0..=1.0).contains(sample)) {
+                self.engine.predict_f32(frame)
+            } else {
+                for (clamped, sample) in self.clamped_frame.iter_mut().zip(frame) {
+                    *clamped = sample.clamp(-1.0, 1.0);
+                }
+                self.engine.predict_f32(&self.clamped_frame)
+            },
+        )
     }
 }
 
 impl VoiceActivityDetector for EarshotVad {
     fn push_frame<'a>(&'a mut self, frame: &'a [f32]) -> Result<VadFrame<'a>> {
-        if self.speech_probability(frame)? >= self.threshold {
+        if self.score_frame(frame)? >= self.threshold {
             Ok(VadFrame::Speech(frame))
         } else {
             Ok(VadFrame::Noise)
@@ -76,6 +75,14 @@ impl VoiceActivityDetector for EarshotVad {
 
     fn reset(&mut self) {
         self.engine.reset();
+    }
+}
+
+impl SpeechScorer for EarshotVad {
+    fn score(&mut self, frames: &[f32]) -> Result<Vec<f32>> {
+        check_whole_frames(frames, EARSHOT_FRAME_SAMPLES)?;
+        let (frames, _) = frames.as_chunks::<EARSHOT_FRAME_SAMPLES>();
+        frames.iter().map(|frame| self.score_frame(frame)).collect()
     }
 }
 

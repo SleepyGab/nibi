@@ -1,7 +1,10 @@
 # nibi — Apple Silicon installation
 
-Current source: nibi v0.0.2-preview.1, for Apple Silicon Macs. Use a recent macOS version;
+Current source: nibi v0.0.3-preview.1, based on Handy v0.10.0, for Apple Silicon Macs. Use a recent macOS version;
 older macOS and Intel have not been validated.
+
+The download below is the previous published preview and does not include the
+v0.10.0 migration. Source builds use the version shown above.
 
 Download **nibi-v0.0.2-preview.1-macos-apple-silicon.dmg** from the
 [preview release](https://github.com/SleepyGab/nibi/releases/tag/v0.0.2-preview.1).

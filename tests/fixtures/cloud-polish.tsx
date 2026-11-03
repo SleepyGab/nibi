@@ -1,7 +1,6 @@
 // Development-only IPC fixture, excluded from application entry points.
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Toaster } from "sonner";
 import { CloudPolishSettings } from "../../src/components/settings/CloudPolishSettings";
 import { HistorySettings } from "../../src/components/settings/history/HistorySettings";
 import "../../src/App.css";
@@ -193,8 +192,5 @@ Object.defineProperty(window, "__TAURI_EVENT_PLUGIN_INTERNALS__", {
 const { default: i18n } = await import("../../src/i18n");
 await i18n.changeLanguage(query.get("lang") || "zh");
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <>
-    <Toaster />
-    {query.has("history") ? <HistorySettings /> : <CloudPolishSettings />}
-  </>,
+  <>{query.has("history") ? <HistorySettings /> : <CloudPolishSettings />}</>,
 );
