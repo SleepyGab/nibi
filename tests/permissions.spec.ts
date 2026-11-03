@@ -31,9 +31,10 @@ test("detects a grant made outside its own button and completes once", async ({
 }) => {
   await page.goto("/tests/fixtures/permissions.html");
   await expect(
-    page.getByRole("button", { name: "Grant Permission" }),
+    page.getByRole("button", { name: "Allow", exact: true }),
   ).toBeVisible();
   await update(page, { accessibility: true });
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
   const result = await state(page);
   expect(result.completed).toBe(1);
@@ -50,12 +51,12 @@ test("negative polling times out to recovery controls and notices a later grant"
 }) => {
   await page.clock.install();
   await page.goto("/tests/fixtures/permissions.html");
-  await page.getByRole("button", { name: "Grant Permission" }).click();
+  await page.getByRole("button", { name: "Allow", exact: true }).click();
   expect((await state(page)).calls).toContain("open_accessibility_settings");
-  await expect(page.getByText("Waiting...", { exact: true })).toBeVisible();
+  await expect(page.getByText("Waiting", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Check again" })).toBeVisible();
   await page.clock.fastForward(16000);
-  await expect(page.getByText("Waiting...", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Waiting", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("status")).toContainText(
     "remove the old nibi entry",
   );
@@ -63,6 +64,7 @@ test("negative polling times out to recovery controls and notices a later grant"
   expect((await state(page)).calls).toContain("plugin:process|restart");
   await update(page, { accessibility: true });
   await page.clock.fastForward(1000);
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
 });
 
@@ -72,6 +74,7 @@ test("a failed IPC check remains recoverable instead of silently stopping pollin
   await page.goto("/tests/fixtures/permissions.html?error");
   await expect(page.getByRole("button", { name: "Check again" })).toBeVisible();
   await update(page, { error: false, accessibility: true });
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
 });
 
@@ -87,6 +90,7 @@ test("a hung IPC check exits the spinner and can be retried", async ({
   await expect(page.getByRole("button", { name: "Check again" })).toBeVisible();
   await update(page, { hang: false, accessibility: true });
   await page.clock.fastForward(1500);
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
 });
 
@@ -96,6 +100,7 @@ test("slow checks do not overlap and unmounted polling stops", async ({
   await page.goto("/tests/fixtures/permissions.html?slow");
   await expect(page.getByRole("button", { name: "Check again" })).toBeVisible();
   await update(page, { accessibility: true });
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible({ timeout: 7000 });
   // StrictMode starts and cancels the first mount; active interval polls must
   // never add further overlap after that initial double invocation.
@@ -115,6 +120,7 @@ test("input initialization failures show retry controls rather than false comple
   );
   await expect(page.getByTestId("complete")).toHaveCount(0);
   await update(page, { initError: false });
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
 });
 
@@ -122,14 +128,13 @@ test("Windows only requests microphone permission and detects later grants", asy
   page,
 }) => {
   await page.goto("/tests/fixtures/permissions.html?os=windows&nomic");
-  await expect(
-    page.getByText("Accessibility Access", { exact: true }),
-  ).toHaveCount(0);
-  await page.getByRole("button", { name: "Open System Settings" }).click();
+  await expect(page.getByText("Accessibility", { exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Allow", exact: true }).click();
   expect((await state(page)).calls).toContain(
     "open_microphone_privacy_settings",
   );
   await update(page, { microphone: true });
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(page.getByTestId("complete")).toBeVisible();
 });
 
@@ -137,22 +142,25 @@ test("preview is inert and does not check, request, initialize or restart", asyn
   page,
 }) => {
   await page.goto("/tests/fixtures/permissions.html?preview");
-  await page.getByRole("button", { name: "Grant Permission" }).first().click();
+  await page
+    .getByRole("button", { name: "Allow", exact: true })
+    .first()
+    .click();
   await page.getByRole("button", { name: "Check again" }).click();
   expect(
     (await state(page)).calls.every((call) => call === "get_app_settings"),
   ).toBe(true);
 });
 
-test("settings warning really opens settings and clears on a focus recheck", async ({
+test("returning permission recovery opens settings and accepts a focus recheck", async ({
   page,
 }) => {
-  await page.goto("/tests/fixtures/permissions.html?banner");
-  await page.getByRole("button", { name: "Open System Settings" }).click();
+  await page.goto("/tests/fixtures/permissions.html");
+  await page.getByRole("button", { name: "Allow", exact: true }).click();
   expect((await state(page)).calls).toContain("open_accessibility_settings");
   await update(page, { accessibility: true });
   await expect(
-    page.getByRole("button", { name: "Open System Settings" }),
+    page.getByRole("button", { name: "Allow", exact: true }),
   ).toHaveCount(0);
 });
 
@@ -163,3 +171,28 @@ test("Chinese recovery instructions are localized", async ({ page }) => {
     "重新添加“应用程序”里的 nibi",
   );
 });
+
+for (const language of ["en", "zh"]) {
+  test(`permission recovery controls fit the native minimum window (${language})`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 720, height: 600 });
+    await page.goto(`/tests/fixtures/permissions.html?lang=${language}&error`);
+    await expect(page.getByRole("status")).toBeVisible();
+    const restart = await page
+      .getByRole("button", {
+        name: language === "zh" ? "重启 nibi" : "Restart nibi",
+        exact: true,
+      })
+      .boundingBox();
+    const footer = await page
+      .getByRole("button", {
+        name: language === "zh" ? "继续" : "Continue",
+        exact: true,
+      })
+      .boundingBox();
+    expect(restart).not.toBeNull();
+    expect(footer).not.toBeNull();
+    expect(restart!.y + restart!.height).toBeLessThanOrEqual(footer!.y);
+  });
+}

@@ -1047,29 +1047,49 @@ mod tests {
     #[cfg(feature = "local-only")]
     #[tokio::test]
     async fn local_only_rejects_cloud_text_before_creating_a_request() {
-        let provider = crate::settings::PostProcessProvider {
+        let mut provider = crate::settings::PostProcessProvider {
             id: "test".into(),
             label: "test".into(),
             base_url: "invalid-url".into(),
             allow_base_url_edit: false,
             models_endpoint: None,
             supports_structured_output: false,
+            api_format: crate::settings::PostProcessApiFormat::OpenAi,
         };
-        assert_eq!(
-            crate::llm_client::send_chat_completion(
-                &provider,
-                "unused".into(),
-                "test",
-                "private test text".into(),
-                false
-            )
-            .await,
-            Err("Cloud processing is disabled in Handy Local".into())
-        );
-        assert_eq!(
-            crate::llm_client::fetch_models(&provider, "unused".into()).await,
-            Err("Cloud processing is disabled in Handy Local".into())
-        );
+        for format in [
+            crate::settings::PostProcessApiFormat::OpenAi,
+            crate::settings::PostProcessApiFormat::Anthropic,
+        ] {
+            provider.api_format = format;
+            assert_eq!(
+                crate::llm_client::send_chat_completion(
+                    &provider,
+                    "unused".into(),
+                    "test",
+                    "private test text".into(),
+                    false,
+                )
+                .await,
+                Err("Cloud processing is disabled in Handy Local".into())
+            );
+            assert_eq!(
+                crate::llm_client::send_chat_completion_with_schema(
+                    &provider,
+                    "unused".into(),
+                    "test",
+                    "private test text".into(),
+                    None,
+                    None,
+                    false,
+                )
+                .await,
+                Err("Cloud processing is disabled in Handy Local".into())
+            );
+            assert_eq!(
+                crate::llm_client::fetch_models(&provider, "unused".into()).await,
+                Err("Cloud processing is disabled in Handy Local".into())
+            );
+        }
         assert!(crate::settings::update_checks_forced_disabled());
     }
     #[test]

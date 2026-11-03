@@ -1,9 +1,9 @@
 // Dev-only fixture: no operating-system permissions are read or changed.
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { Toaster } from "sonner";
-import AccessibilityOnboarding from "../../src/components/onboarding/AccessibilityOnboarding";
-import AccessibilityPermissions from "../../src/components/AccessibilityPermissions";
+import { Permissions } from "../../src/components/onboarding/screens/Permissions";
+import { usePermissions } from "../../src/components/onboarding/usePermissions";
+import { useOnboardingStore } from "../../src/components/onboarding/onboardingStore";
 import "../../src/App.css";
 
 const query = new URLSearchParams(location.search);
@@ -63,13 +63,17 @@ Object.defineProperty(window, "__TAURI_INTERNALS__", {
 });
 const { default: i18n } = await import("../../src/i18n");
 await i18n.changeLanguage(query.get("lang") || "en");
+useOnboardingStore.getState().reset(query.has("preview"));
+function PermissionFixture({ onComplete }: { onComplete: () => void }) {
+  const permissions = usePermissions(query.has("preview"));
+  if (!permissions.checked) return null;
+  return <Permissions permissions={permissions} onContinue={onComplete} />;
+}
 function Fixture() {
   const [complete, setComplete] = useState(false);
-  if (query.has("banner")) return <AccessibilityPermissions />;
   if (complete) return <div data-testid="complete">Complete</div>;
   return (
-    <AccessibilityOnboarding
-      preview={query.has("preview")}
+    <PermissionFixture
       onComplete={() => {
         state.completed++;
         setComplete(true);
@@ -79,7 +83,6 @@ function Fixture() {
 }
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Toaster />
     <Fixture />
   </React.StrictMode>,
 );

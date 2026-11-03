@@ -309,7 +309,6 @@ class ForkGuardTests(unittest.TestCase):
                 "src-tauri/src/cloud_polish.rs",
                 "src-tauri/src/vocabulary.rs",
                 "src-tauri/src/managers/transcription.rs",
-                "src-tauri/vendor/transcribe-cpp-sys/src/arch/qwen3_asr/model.cpp",
                 "src-tauri/src/local_corrections.rs",
                 "src-tauri/src/corrections_transfer.rs",
                 "src-tauri/native/local_corrections.m",
